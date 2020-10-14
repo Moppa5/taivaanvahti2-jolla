@@ -137,7 +137,7 @@ Page {
             BackgroundItem {
                 id: homepage
                 height: Theme.itemSizeSmall
-                property string url: "https://github.com/Moppa5/taivaanvahti-jolla/"
+                property string url: "https://github.com/Moppa5/taivaanvahti2-jolla"
 
                 Label {
                     anchors.centerIn: parent
