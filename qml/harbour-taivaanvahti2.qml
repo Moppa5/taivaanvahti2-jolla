@@ -43,7 +43,7 @@ ApplicationWindow
         id: config
     }
 
-    initialPage: Qt.createComponent("pages/Havainnot.qml")
+    initialPage: Qt.createComponent("pages/Observations.qml")
     cover: Qt.createComponent("cover/CoverPage.qml")
 
     // Error flags

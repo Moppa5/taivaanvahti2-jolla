@@ -64,12 +64,12 @@ Page {
 
             MenuItem {
                 text: "Tietoja"
-                onClicked: pageStack.push("Tietoja.qml")
+                onClicked: pageStack.push("Info.qml")
             }
 
             MenuItem {
                 text: "Asetukset"
-                onClicked: pageStack.push("Haku.qml")
+                onClicked: pageStack.push("Search.qml")
             }
 
             MenuItem {
@@ -170,7 +170,7 @@ Page {
                 taivas.havainto = index
                 taivas.havaitseTarkemmin()
                 taivas.kommentoi()
-                pageStack.push("Havainto.qml")
+                pageStack.push("Observation.qml")
             }
         }
 

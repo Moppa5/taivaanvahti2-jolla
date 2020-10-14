@@ -33,8 +33,7 @@
 #endif
 
 #include <sailfishapp.h>
-#include <config.h>
-
+#include <src/config.h>
 
 int main(int argc, char *argv[])
 {

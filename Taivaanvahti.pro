@@ -11,24 +11,24 @@ TARGET = harbour-taivaanvahti2
 CONFIG += sailfishapp
 
 SOURCES += src/Taivaanvahti.cpp \
-    config.cpp
+    src/config.cpp
 
 OTHER_FILES += \
     rpm/harbour-taivaanvahti.yaml \
     qml/cover/CoverPage.qml \
-    qml/pages/Tietoja.qml \
     qml/pages/Photos.qml \
-    qml/pages/Havainto.qml \
-    qml/pages/Havainnot.qml \
-    qml/pages/Haku.qml \
 
 HEADERS += \
-    config.h
+    src/config.h
 
 DISTFILES += \
     UpdateLog.txt \
     harbour-taivaanvahti2.desktop \
     harbour-taivaanvahti2.png \
     qml/harbour-taivaanvahti2.qml \
-    qml/pages/comment.qml \
+    qml/pages/Comment.qml \
+    qml/pages/Info.qml \
+    qml/pages/Observation.qml \
+    qml/pages/Observations.qml \
+    qml/pages/Search.qml \
     rpm/harbour-taivaanvahti2.spec

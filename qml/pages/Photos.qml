@@ -90,20 +90,6 @@ Page {
             }
 
             function initialSize() {
-
-                /* if (width >= sourceSize.width && height >= sourceSize.height) {
-                    width = sourceSize.width
-                    height = sourceSize.height
-                    scaled = false
-                    panner.enabled = true
-                }
-
-                if (width > ss.width || height > ss.height) {
-                    width = ss.width
-                    height = ss.height
-                    scaled = true
-                } */
-
                 width = ss.width
                 height = ss.height
                 panner.enabled = true

@@ -49,7 +49,7 @@ Page {
             MenuItem {
                 id: comment
                 text: "Jätä kommentti"
-                onClicked: pageStack.push("comment.qml")
+                onClicked: pageStack.push("Comment.qml")
             }
 
             MenuItem {
