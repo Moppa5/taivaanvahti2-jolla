@@ -43,7 +43,7 @@ Page {
             return "Ei havaintoja"
         } else if (taivas.fetchError) {
             hintMessage = "Rajapintahaku on voinut muuttua. Ota yhteyttä kehittäjään"
-            return "Rajapintahaussa tapahtui virhe"
+            return "Rajapintahaussa tapahtui virhe, tarkista verkkoyhteys"
         } else {
             hintMessage = ""
             return ""
