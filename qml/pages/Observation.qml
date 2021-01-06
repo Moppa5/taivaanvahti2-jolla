@@ -32,9 +32,14 @@ import Sailfish.Silica 1.0
 
 Page {
     id: page
-
     property var photoComp: null
     property var photoPage: null
+
+    onStatusChanged: {
+            if (status === PageStatus.Active){
+                pageStack.pushAttached(Qt.resolvedUrl("Comment.qml"));
+            }
+    }
 
     SilicaFlickable {
         id: flick

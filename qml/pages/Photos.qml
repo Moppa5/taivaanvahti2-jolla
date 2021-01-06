@@ -60,7 +60,6 @@ Page {
     SlideshowView {
         id: ss
         anchors.fill: parent
-
         model: taivas.havainnot.get(taivas.havainto).photos
 
         delegate: Image {
@@ -73,7 +72,6 @@ Page {
             source: url
             smooth: false
             property bool scaled: true
-
 
             onStatusChanged: {
                 if (status != Image.Ready)

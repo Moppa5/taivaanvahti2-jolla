@@ -40,12 +40,11 @@ Page {
         id: flick
         anchors.fill: parent
         contentHeight: header.height + col.height + Theme.paddingLarge
-
         ScrollDecorator { flickable: flick }
 
         PageHeader {
             id: header
-            title: "Asetukset"
+            title: "Asetukset ja haku"
         }
 
         Column {
@@ -74,8 +73,7 @@ Page {
                     checked: taivas.landscape
                     property string category: "landscape"
                     text: "Näytä vaakatasossa (landscape)"
-                    description: "Valitse näytetäänkö kuvat vaaka- vai pystytasossa (landscape/portrait). "
-                                + "Asetus toimii ilman, että Tallennus-kohta on päällä."
+                    description: "Valitse näytetäänkö kuvat vaaka- vai pystytasossa (landscape/portrait)"
                 }
             }
 

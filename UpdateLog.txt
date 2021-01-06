@@ -1,6 +1,8 @@
-Taivaanvahti 2.0.3
+Taivaanvahti 2.1.0
+        * Pieniä koodimodifikaatioita ja parannuksia
+        * AttachedPage käyttöön; päänäkymä=>asetukset, havainto=>kommentointi
 
--Muutokset
+Taivaanvahti 2.0.3
         * Korjattu pienehkö bugi, kun  havainnon kuvia klikataan ennen kuin havainnon muut tiedot
           on ladattu. Bugista aiheutui siis se, että havainto saattoi jäädä keskeneräiseksi.
         * Lisätty virheenkäsittely tilanteeseen, jossa api-haku ei toimi ollenkaan
@@ -8,14 +10,10 @@ Taivaanvahti 2.0.3
         * Uusi formatointi päivämäärille, pitäisi olla selkeämät nyt
 
 Taivaanvahti 2.0.2
-
--Muutokset
         * Kommentointi ominaisuus havainnoille
         * Mahdollisuus havainnon yhteydessä kytkeä vaaka tai pystykuvat
 
 Taivaanvahti 2.0.1
-
-- Muutokset
         * Paranneltu havaintokuvien skaalausta ja näkymää
         * SlideShowView havaintokuvat voi nyt näyttää kerrallaan joko landscape tai portrait moodissa
         * Lisätty asetus, jolla käyttäjä voi vaihtaa tilan joko suosimaan landscape tai portait

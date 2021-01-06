@@ -30,6 +30,7 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 
+// This is the main page open by default
 
 Page {
     id: havainnotPage
@@ -49,6 +50,12 @@ Page {
             return ""
         }
 
+    }
+
+    onStatusChanged: {
+            if (status === PageStatus.Active){
+                pageStack.pushAttached(Qt.resolvedUrl("Search.qml"));
+            }
     }
 
     SilicaListView {
@@ -97,7 +104,7 @@ Page {
 
         delegate: BackgroundItem {
 
-            height: Theme.itemSizeExtraLarge // Standard was large
+            height: Theme.itemSizeExtraLarge
 
             Column {
                 id: h
