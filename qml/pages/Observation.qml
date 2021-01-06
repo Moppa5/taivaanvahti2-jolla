@@ -315,16 +315,34 @@ Page {
 
             Column {
                 id: comments
-                spacing: Theme.paddingLarge
+                spacing: Theme.paddingMedium
 
                 Repeater {
                     model: taivas.kommentit
                     delegate: Column {
+                        spacing: Theme.paddingMedium
+
+                        Separator {
+                            color: Theme.highlightColor
+                            width: parent.width
+                            horizontalAlignment: Qt.AlignHCenter
+                            visible: taivas.kommentit.count > 1
+                        }
 
                         Label {
                             font.pixelSize: Theme.fontSizeMedium
                             text: user
                         }
+
+                        Label {
+                            width: col.width
+                            wrapMode: Text.WordWrap
+                            maximumLineCount: 1024
+                            text: model.text
+                            truncationMode: TruncationMode.Fade
+                            font.pixelSize: Theme.fontSizeSmall
+                        }
+
                         Label {
                             font.pixelSize: Theme.fontSizeSmall
                             color: Theme.secondaryColor
@@ -337,15 +355,6 @@ Page {
 
                                 return txt + " | " + date + "." + month + "." + year
                             }
-                        }
-
-                        Label {
-                            width: col.width
-                            wrapMode: Text.WordWrap
-                            maximumLineCount: 1024
-                            text: model.text
-                            truncationMode: TruncationMode.Fade
-                            font.pixelSize: Theme.fontSizeSmall
                         }
                     }
                 }

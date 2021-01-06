@@ -1,6 +1,7 @@
 Taivaanvahti 2.1.0
         * Pieniä koodimodifikaatioita ja parannuksia
         * AttachedPage käyttöön; päänäkymä=>asetukset, havainto=>kommentointi
+        * Kommenttikentän uudelleenasettelua. Päivämäärä siirretty kommentin alaosaan. Separaattorit kommenttien välille
 
 Taivaanvahti 2.0.3
         * Korjattu pienehkö bugi, kun  havainnon kuvia klikataan ennen kuin havainnon muut tiedot
