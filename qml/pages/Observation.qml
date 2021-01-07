@@ -315,6 +315,7 @@ Page {
 
                 Repeater {
                     model: taivas.kommentit
+
                     delegate: Column {
                         spacing: Theme.paddingMedium
 
@@ -322,7 +323,6 @@ Page {
                             color: Theme.highlightColor
                             width: parent.width
                             horizontalAlignment: Qt.AlignHCenter
-                            visible: taivas.kommentit.count > 1
                         }
 
                         Label {

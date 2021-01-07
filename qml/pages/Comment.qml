@@ -7,7 +7,7 @@ Page {
     function setResponse(message, success) {
         // Show error code in label
         errmsg.enabled = true
-        errmsg.text = message
+        errmsg.text = "<b>" + message + "</b>"
 
         if (success) {
             errmsg.color = Theme.highlightColor
@@ -83,7 +83,7 @@ Page {
 
         Column {
             id: col
-            spacing: Theme.paddingLarge
+            spacing: Theme.paddingMedium
             anchors.top: header.bottom
             anchors.topMargin: 0
             anchors.left: parent.left
@@ -165,6 +165,12 @@ Page {
                 placeholderText: "Kommenttisi tähän"
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
+            }
+
+            Button {
+                id: send
+                text: "Lähetä"
+                onClicked: leaveComment()
             }
         }
     }
