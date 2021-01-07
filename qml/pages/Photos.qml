@@ -35,6 +35,7 @@ Page {
     property int currentIndex: 0
     property real portraitScale: 2.0
     property real landscapeScale: 1.75
+    property real zoomScale: 0.20
 
     allowedOrientations: {
         if (taivas.landscape)
@@ -148,9 +149,39 @@ Page {
             currentItem.initialSize()
             currentItem.toggleSize(true)
         }
+
+        function zoomIn() {
+            currentItem.height += zoomScale*currentItem.height
+            currentItem.width += zoomScale*currentItem.width
+
+        }
+
+        function zoomOut() {
+            currentItem.height -= zoomScale*currentItem.height
+            currentItem.width -= zoomScale*currentItem.width
+        }
+    }
+
+    ButtonLayout {
+        id: zoomButtons
+        anchors.bottom: nametag.top
+        anchors.margins: Theme.paddingMedium
+
+        Button {
+            id: zoomIn
+            text: "<b>+</b>"
+            onClicked: ss.zoomIn()
+        }
+
+        Button {
+            id: zoomOut
+            text: "<b>-</b>"
+            onClicked: ss.zoomOut()
+        }
     }
 
     Label {
+        id: nametag
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         anchors.margins: Theme.paddingLarge
@@ -170,7 +201,6 @@ Page {
             ss.resetSize()
             var temp = currentIndex
             ss.model = null
-
             ss.currentIndex = temp
         }
 
