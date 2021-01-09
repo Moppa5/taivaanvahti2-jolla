@@ -33,12 +33,12 @@ public:
      * @brief Sets status for current stateBank
      * @pre Object must be in stateBank already
      */
-    Q_INVOKABLE void setStatus(QString object, bool status);
+    Q_INVOKABLE void setStatus(const QString &object, const bool &status);
 
     /**
       * @brief Fetches a single object's status from stateBank
       */
-    Q_INVOKABLE bool fetchStatus(QString object);
+    Q_INVOKABLE bool fetchStatus(const QString &object);
 
     /**
       * @brief Fetch the user parameter if set
@@ -58,9 +58,9 @@ public:
     /**
       * @brief Sets the search parameters
       */
-    Q_INVOKABLE void setSearchParameters(QString user = "",
-                                         QString title = "",
-                                         QString city = "");
+    Q_INVOKABLE void setSearchParameters(const QString &user = "",
+                                         const QString &title = "",
+                                         const QString &city = "");
 
     /**
       * @brief Fetches if the start and end dates are defined
@@ -75,13 +75,13 @@ public:
       * @return QDate based on config QString dates in format
       * yyyy-MM-dd
       */
-    Q_INVOKABLE QDate fetchRealDate(QString date);
+    Q_INVOKABLE QDate fetchRealDate(const QString &date);
 
     /**
       * @brief Sets start or end string based on given QDate
       * in format yyyy-MM-dd
       */
-    Q_INVOKABLE void setDate(QDate date, QString dateType);
+    Q_INVOKABLE void setDate(const QDate &date, const QString &dateType);
 
     /**
       * @brief Resets both start and end QStrings
@@ -97,12 +97,12 @@ public:
     /**
       * @brief Sets state based on given parameter status
       */
-    Q_INVOKABLE void setConfigurable(bool status);
+    Q_INVOKABLE void setConfigurable(const bool &status);
 
     /**
       * @brief Sets the landscape into state true or false
       */
-    Q_INVOKABLE void notLandScape(bool status);
+    Q_INVOKABLE void notLandScape(const bool &status);
 
     /**
       * @brief Checks if landscape should be used

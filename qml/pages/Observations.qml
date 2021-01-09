@@ -49,7 +49,6 @@ Page {
             hintMessage = ""
             return ""
         }
-
     }
 
     onStatusChanged: {
@@ -103,7 +102,6 @@ Page {
         model: taivas.havainnot
 
         delegate: BackgroundItem {
-
             height: Theme.itemSizeExtraLarge
 
             Column {
@@ -127,6 +125,7 @@ Page {
                     color: Theme.secondaryColor
                     elide: Text.ElideRight
                 }
+
                 Label {
                     text: {
                         var txt = Format.formatDate(start, Formatter.TimeValue)
@@ -180,7 +179,6 @@ Page {
                 pageStack.push("Observation.qml")
             }
         }
-
     }
 }
 

@@ -64,7 +64,6 @@ Page {
         id: flick
         anchors.fill: parent
         contentHeight: header.height + col.height + Theme.paddingLarge
-
         ScrollDecorator { flickable: flick }
 
         PullDownMenu {
@@ -126,7 +125,6 @@ Page {
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
                 placeholderText: "Koko nimesi"
-
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
@@ -146,7 +144,6 @@ Page {
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
                 placeholderText: "Sähköpostisi"
-
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
@@ -166,7 +163,6 @@ Page {
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
                 placeholderText: "Kommenttisi tähän"
-
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }

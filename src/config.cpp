@@ -7,10 +7,10 @@ Config::Config(QObject *parent) : QObject(parent)
 
 void Config::writeStatus()
 {
-        QString datadir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
-        QDir dir(datadir);
+        const QString &datadir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+        const QDir dir(datadir);
         dir.mkpath("harbour-taivaanvahti");
-        QString path = datadir + "/" + "harbour-taivaanvahti" + "/" + "config.txt";
+        const QString &path = datadir + "/" + "harbour-taivaanvahti" + "/" + "config.txt";
 
         QFile file(path);
 
@@ -33,7 +33,7 @@ void Config::writeStatus()
             for (object = stateBank_.begin(); object != stateBank_.end(); object++) {
                 QString state = "";
 
-                if (object.value() == true) {
+                if (object.value()) {
                     state = "true";
                 } else {
                     state = "false";
@@ -41,15 +41,15 @@ void Config::writeStatus()
                 outStream << object.key() << "=" << state << "\n";
             }
 
-            if (searchUser_ != "") {
+            if (!searchUser_.isEmpty()) {
                 outStream << "user=" << searchUser_ << "\n";
             }
 
-            if (searchTitle_ != "") {
+            if (!searchTitle_.isEmpty()) {
                 outStream << "title=" << searchTitle_ << "\n";
             }
 
-            if (searchCity_ != "") {
+            if (!searchCity_.isEmpty()) {
                 outStream << "city=" << searchCity_ << "\n";
             }
 
@@ -80,10 +80,10 @@ void Config::writeStatus()
 
 bool Config::readStatus()
 {
-    QString datadir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
-    QDir dir(datadir);
+    const QString &datadir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+    const QDir &dir(datadir);
     dir.mkpath("harbour-taivaanvahti");
-    QString path = datadir + "/" + "harbour-taivaanvahti" + "/" + "config.txt";
+    const QString &path = datadir + "/" + "harbour-taivaanvahti" + "/" + "config.txt";
 
     QFile file(path);
 
@@ -98,9 +98,9 @@ bool Config::readStatus()
     while (!file.atEnd()) {
         QString line = file.readLine();
         line.remove(QRegExp("[\n]"));
-        QStringList lineList = line.split("=");
-        QString first = lineList.at(0);
-        QString secondPart = lineList.at(1);
+        const QStringList &lineList = line.split("=");
+        const QString &first = lineList.at(0);
+        const QString &secondPart = lineList.at(1);
         bool second = false;
 
         if (first == "config" && secondPart == "true") {
@@ -151,12 +151,12 @@ bool Config::readStatus()
    return true;
 }
 
-void Config::setStatus(QString object, bool status)
+void Config::setStatus(const QString &object, const bool &status)
 {
     stateBank_[object] = status;
 }
 
-bool Config::fetchStatus(QString object)
+bool Config::fetchStatus(const QString &object)
 {
     return stateBank_[object];
 }
@@ -176,7 +176,9 @@ QString Config::fetchSearchCity()
     return searchCity_;
 }
 
-void Config::setSearchParameters(QString user, QString title, QString city)
+void Config::setSearchParameters(const QString &user,
+                                 const QString &title,
+                                 const QString &city)
 {
     if (user != "") {
         searchUser_ = user;
@@ -197,7 +199,7 @@ void Config::setSearchParameters(QString user, QString title, QString city)
     }
 }
 
-QDate Config::fetchRealDate(QString date)
+QDate Config::fetchRealDate(const QString &date)
 {
     QDate returnDate;
 
@@ -221,7 +223,7 @@ bool Config::fetchDate()
     return false;
 }
 
-void Config::setDate(QDate date, QString dateType)
+void Config::setDate(const QDate &date, const QString &dateType)
 {
     if (dateType == "start") {
         start = date.toString("yyyy-MM-dd");
@@ -241,12 +243,12 @@ bool Config::isConfigurable()
     return configurable_;
 }
 
-void Config::setConfigurable(bool status)
+void Config::setConfigurable(const bool &status)
 {
     configurable_ = status;
 }
 
-void Config::notLandScape(bool status)
+void Config::notLandScape(const bool &status)
 {
     landScape_ = status;
 }

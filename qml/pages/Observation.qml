@@ -44,7 +44,6 @@ Page {
     SilicaFlickable {
         id: flick
         anchors.fill: parent
-
         contentHeight: header.height + col.height + Theme.paddingLarge
         ScrollDecorator { flickable: flick }
 
@@ -200,7 +199,6 @@ Page {
                         color: Theme.highlightColor
                         font.family: Theme.fontFamilyHeading
                         horizontalAlignment: Text.AlignLeft
-
                         text: {
                             if (taivas.havainnot.get(taivas.havainto).thumbs && taivas.havainnot.get(taivas.havainto).thumbs.count)
                                 return "Kuvat (" + taivas.havainnot.get(taivas.havainto).thumbs.count + ")"
@@ -222,7 +220,6 @@ Page {
                         }
                     }
                 }
-
             }
 
             Flow {
@@ -276,7 +273,6 @@ Page {
                     visible: running
                     running: false
                 }
-
             }
 
             Label {
@@ -395,7 +391,5 @@ Page {
                 }
             }
         }
-
     }
-
 }

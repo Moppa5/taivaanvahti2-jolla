@@ -102,8 +102,8 @@ Page {
                     id: dateSavingSwitch
                     checked: saveDate
                     property string category: "savedate"
-                    text: "Tallenna aikajakso"
-                    description: "Valittu aikajakso tallennetaan käyttökertojen välillä"
+                    text: "Tallenna haun aikaväli"
+                    description: "Valittu aikaväli tallennetaan käyttökertojen välillä"
                 }
             }
 
@@ -134,7 +134,7 @@ Page {
                     id: start
                     width: col.width
                     label: "Alku"
-                    value: Qt.formatDate(date, "dd-MM-yyyy")
+                    value: Qt.formatDate(date, "d.M.yyyy")
                     property var date: taivas.startDate
 
                     onClicked: {
@@ -153,16 +153,17 @@ Page {
                     id: end
                     width: parent.width
                     label: "Loppu"
-                    value: Qt.formatDate(date, "dd-MM-yyyy")
+                    value: Qt.formatDate(date, "d.M.yyyy")
                     property var date: taivas.endDate
 
                     onClicked: {
                         page.dialogRunning = true
                         var dialog = pageStack.push("Sailfish.Silica.DatePickerDialog", { date: date })
+                        var currentDate = new Date()
 
                         dialog.accepted.connect(function() {
                             page.dialogRunning = false
-                            if (dialog.date > start.date)
+                            if (dialog.date > start.date && dialog.date <= currentDate)
                                 taivas.endDate = dialog.date
                         })
                     }
@@ -288,7 +289,6 @@ Page {
                     text: "Muu ilmiö"
                     description: "Muut valoilmiöt"
                 }
-
             }
 
             Button {
@@ -299,7 +299,24 @@ Page {
                     observer.text = ""
                     title.text = ""
                 }
+            }
 
+            Label {
+                anchors.left: parent.left
+                font.pixelSize: Theme.fontSizeMedium
+                color: Theme.highlightColor
+                font.family: Theme.fontFamilyHeading
+                text: "Havainnon otsikko"
+            }
+
+            TextField {
+                id: title
+                width: parent.width
+                focus: false
+                font.pixelSize: Theme.fontSizeSmall
+                placeholderText: "Mikä tahansa"
+                EnterKey.iconSource: "image://theme/icon-m-enter-close"
+                EnterKey.onClicked: focus = false
             }
 
             Label {
@@ -315,8 +332,7 @@ Page {
                 width: parent.width
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Mikä Tahansa"
-
+                placeholderText: "Mikä tahansa"
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
@@ -334,27 +350,7 @@ Page {
                 width: parent.width
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Kuka Tahansa"
-
-                EnterKey.iconSource: "image://theme/icon-m-enter-close"
-                EnterKey.onClicked: focus = false
-            }
-
-            Label {
-                anchors.left: parent.left
-                font.pixelSize: Theme.fontSizeMedium
-                color: Theme.highlightColor
-                font.family: Theme.fontFamilyHeading
-                text: "Havainnon otsikko"
-            }
-
-            TextField {
-                id: title
-                width: parent.width
-                focus: false
-                font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Mikä Tahansa"
-
+                placeholderText: "Kuka tahansa"
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
@@ -430,7 +426,7 @@ Page {
         taivas.startDate = start.date
         taivas.endDate = end.date
 
-        if (!reset & dateSavingSwitch.checked) {
+        if (dateSavingSwitch.checked) {
             taivas.saveDate(start.date,"start")
             taivas.saveDate(end.date,"end")
         }

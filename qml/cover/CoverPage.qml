@@ -79,13 +79,11 @@ CoverBackground {
 
         CoverAction {
             iconSource: "image://theme/icon-cover-refresh"
-
             onTriggered: {
                 taivas.viimeiset.clear()
                 taivas.havaitse()
             }
         }
-
     }
 }
 

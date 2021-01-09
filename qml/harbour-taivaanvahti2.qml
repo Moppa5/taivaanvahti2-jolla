@@ -69,7 +69,10 @@ ApplicationWindow
     property string searchCity: ""
     property string configurequery: ""
     property string userName: ""
-    property string copyright: "© 2020 "
+    property string copyright: {
+                                  var currentTime = new Date()
+                                  return "© " + currentTime.getFullYear() + " "
+                               }
     property string searchUser: ""
 
     // URLS
@@ -79,7 +82,7 @@ ApplicationWindow
     property string commentUrl: "https://www.taivaanvahti.fi/app/api/comment_search.php?format=json"
 
     // Date related parameters
-    property int dateOffset: 7
+    property int dateOffset: 10
     property var startDate: makeOffsetDate()
     property var endDate: new Date()
 
@@ -109,6 +112,7 @@ ApplicationWindow
     }
 
     function saveDate(date, dateType) {
+        // Date and whether start or end
         config.setDate(date,dateType)
     }
 
@@ -117,12 +121,12 @@ ApplicationWindow
     }
 
     function writeStatus() {
-        // method to call from other qml files
+        // Write config status
         config.writeStatus()
     }
 
     function setConfigureStatus(object, status) {
-        // Method to call from other qml files
+        // Set true/false status for each config object
         config.setStatus(object,status)
     }
 
@@ -135,14 +139,17 @@ ApplicationWindow
     }
 
     function isConfigurable() {
+        // Whether config is enabled or not
         return config.isConfigurable()
     }
 
     function setConfigurable(status) {
+        // Set config on or off
         config.setConfigurable(status)
     }
 
     function setLandScape(status) {
+        // Portrait or landscape images
         config.notLandScape(status)
     }
 
@@ -251,6 +258,7 @@ ApplicationWindow
     function havaitse() {
 
         if (fetchError) {
+            // Try again
             fetchError = false
         }
 
@@ -304,6 +312,7 @@ ApplicationWindow
     function kommentoi() {
 
         if (commentError) {
+            // Try again
             commentError = false
         }
 

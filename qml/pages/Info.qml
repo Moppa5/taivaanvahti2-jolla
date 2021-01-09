@@ -37,7 +37,6 @@ Page {
         id: flick
         anchors.fill: parent
         contentHeight: header.height + col.height + Theme.paddingLarge
-
         ScrollDecorator { flickable: flick }
 
         PageHeader {
@@ -190,9 +189,7 @@ Page {
                     font.pixelSize: Theme.fontSizeSmall
                     text: dev.developer
                 }
-
             }
-
         }
     }
 }
