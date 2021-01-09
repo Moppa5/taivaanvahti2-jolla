@@ -53,17 +53,22 @@ void Config::writeStatus()
                 outStream << "city=" << searchCity_ << "\n";
             }
 
-            if (start != "") {
+            if (!start.isEmpty() ) {
                 outStream << "start=" << start << "\n";
             }
 
-            if (end != "") {
+            if (!end.isEmpty() ) {
                 outStream << "end=" << end << "\n";
             }
 
             outStream << "config=true" << "\n";
         } else {
             outStream << "config=false" << "\n";
+
+            if (!fetchDate() ) {
+                outStream << "start=" << start << "\n";
+                outStream << "end=" << end << "\n";
+            }
         }
 
         if (!landScape_) {
@@ -87,7 +92,7 @@ bool Config::readStatus()
     }
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            return false;
+        return false;
     }
 
     while (!file.atEnd()) {
@@ -112,6 +117,7 @@ bool Config::readStatus()
 
         if (first == "user" or first == "title" or first == "city" or
                 first == "start" or first == "end") {
+
             if (first == "user") {
                 searchUser_ = secondPart;
             }
@@ -208,7 +214,7 @@ QDate Config::fetchRealDate(QString date)
 
 bool Config::fetchDate()
 {
-    if (start != "" && end != "") {
+    if (start.isEmpty() && end.isEmpty() ) {
         return true;
     }
 

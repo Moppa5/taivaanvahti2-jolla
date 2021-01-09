@@ -104,6 +104,10 @@ ApplicationWindow
         config.resetDate()
     }
 
+    function isDateSaved() {
+        return config.fetchDate()
+    }
+
     function saveDate(date, dateType) {
         config.setDate(date,dateType)
     }
@@ -146,6 +150,15 @@ ApplicationWindow
         // Application launch configuration
 
         if (config.readStatus() ) {
+            // Date will be fetched even if not configurable
+            if (!config.fetchDate()) {
+                // Dates have been saved earlier
+                startDate = config.fetchRealDate("start")
+
+                if (endDate <= config.fetchRealDate("end")) {
+                    endDate = config.fetchRealDate("end")
+                }
+            }
 
             if (config.isConfigurable()) {
             // Update searchCategories from file
@@ -166,15 +179,6 @@ ApplicationWindow
                 if (config.fetchSearchTitle() !== "") {
                     searchUser += "&title=" + config.fetchSearchTitle()
                     searchTitle = config.fetchSearchTitle()
-                }
-
-                if (config.fetchDate()) {
-                    // Dates have been saved earlier
-                    startDate = config.fetchRealDate("start")
-
-                    if (endDate <= config.fetchRealDate("end")) {
-                        endDate = config.fetchRealDate("end")
-                    }
                 }
 
                 // Update categories for query

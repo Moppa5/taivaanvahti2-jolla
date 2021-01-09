@@ -35,6 +35,7 @@ Page {
     property bool dialogRunning: false
     property bool reset: false
     property bool config: false
+    property bool saveDate: false
 
     SilicaFlickable {
         id: flick
@@ -94,7 +95,15 @@ Page {
                     checked: config
                     property string category: "configurable"
                     text: "Tallenna hakuparametrit"
-                    description: "Kaikki hakuparametrit ja aikajakso tallennetaan käyttökertojen välillä"
+                    description: "Kaikki hakuparametrit tallennetaan käyttökertojen välillä"
+                }
+
+                TextSwitch {
+                    id: dateSavingSwitch
+                    checked: saveDate
+                    property string category: "savedate"
+                    text: "Tallenna aikajakso"
+                    description: "Valittu aikajakso tallennetaan käyttökertojen välillä"
                 }
             }
 
@@ -125,7 +134,7 @@ Page {
                     id: start
                     width: col.width
                     label: "Alku"
-                    value: Qt.formatDate(date, "yyyy-MM-dd")
+                    value: Qt.formatDate(date, "dd-MM-yyyy")
                     property var date: taivas.startDate
 
                     onClicked: {
@@ -144,7 +153,7 @@ Page {
                     id: end
                     width: parent.width
                     label: "Loppu"
-                    value: Qt.formatDate(date, "yyyy-MM-dd")
+                    value: Qt.formatDate(date, "dd-MM-yyyy")
                     property var date: taivas.endDate
 
                     onClicked: {
@@ -183,7 +192,9 @@ Page {
                             taivas.setConfigureStatus(p,false);
                         }
                     }
-                    taivas.resetDates()
+
+                    if (!saveDate)
+                        taivas.resetDates()
 
                     taivas.setConfigureStatus("all",true)
                     taivas.setParameters("","","")
@@ -362,6 +373,10 @@ Page {
             config = true
         }
 
+        if ( !taivas.isDateSaved() ) {
+            saveDate = true
+        }
+
         observer.text = taivas.searchObserver
         title.text = taivas.searchTitle
         city.text = taivas.searchCity
@@ -415,9 +430,13 @@ Page {
         taivas.startDate = start.date
         taivas.endDate = end.date
 
-        if (!reset) {
+        if (!reset & dateSavingSwitch.checked) {
             taivas.saveDate(start.date,"start")
             taivas.saveDate(end.date,"end")
+        }
+
+        if (!dateSavingSwitch.checked) {
+            taivas.resetDates()
         }
 
         if (landscapemode.checked) {
