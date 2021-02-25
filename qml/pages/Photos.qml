@@ -33,9 +33,7 @@ import Sailfish.Silica 1.0
 Page {
     id: page
     property int currentIndex: 0
-    property real portraitScale: 2.0
-    property real landscapeScale: 1.75
-    property real zoomScale: 0.20
+    property bool isZoom: false
 
     allowedOrientations: {
         if (taivas.landscape)
@@ -46,7 +44,7 @@ Page {
 
     PageHeader {
         id: header
-        title: "Sovitettu koko"
+        title: isZoom ? "Zoom" : "Sovitettu koko"
         z: 1
     }
 
@@ -72,111 +70,62 @@ Page {
             fillMode: Image.PreserveAspectFit
             source: url
             smooth: false
-            property bool scaled: true
 
             onStatusChanged: {
                 if (status != Image.Ready)
                     return
                 busy.running = false
-                initialSize()
             }
 
-            onScaledChanged: {
-                if (scaled)
-                     header.title = "Sovitettu koko"
-                else
-                     header.title = "Zoomattu koko"
-            }
-
-            function initialSize() {
-                width = ss.width
-                height = ss.height
-                panner.enabled = true
-                scaled = true
-                drag.target = null
-            }
-
-            function toggleSize(check) {
-                if ((width > ss.width || height > ss.height ||
-                        width >= 1.5*sourceSize.width ||
-                        height >= 1.5*sourceSize.height) && scaled !== true) {
-                    width = ss.width
-                    height = ss.height
-                    scaled = true
-                } else {
-
-                    if (isPortrait) {
-                        width = portraitScale*width
-                        height = portraitScale*height
-                    } else {
-                        width = landscapeScale*width
-                        height = landscapeScale*height
-                    }
-                    scaled = false
-                }
-
-                if (check) {
-                    scaled = true
-                    drag.target = null
-                }
-            }
-
-            MouseArea {
-                id: panner
+            PinchArea {
+                id: zoom
                 anchors.fill: parent
-                enabled: true
-                hoverEnabled: true
-                drag.maximumX: width / 4
-                drag.maximumY: height / 4
+                pinch.target: photo
+                pinch.minimumScale: 1.0
+                pinch.maximumScale: 5.0
 
-                onClicked: {
-                    photo.toggleSize(false)
+                onPinchFinished: {
+                    if (ss.currentItem.scale < 1.25) {
+                        // reset
+                        ss.currentItem.scale = 1.0
+                        isZoom = false
+                    }
+                }
 
-                    if (photo.scaled) {
-                        drag.target = null
-                    } else {
-                        drag.target = photo
+                onPinchStarted: {
+                    isZoom = true
+                }
+
+                MouseArea {
+                    id: panner
+                    anchors.fill: parent
+                    drag.maximumX: ss.width / 2
+                    drag.maximumY: ss.width / 2
+                    hoverEnabled: true
+                    drag.target: {
+                        if (isZoom)
+                            return photo
+                        else
+                            return null
                     }
                 }
             }
-        }
-
-        function resetSize() {
-            currentItem.initialSize()
-        }
-
-        function reset() {
-            currentItem.initialSize()
-            currentItem.toggleSize(true)
-        }
-
-        function zoomIn() {
-            currentItem.height += zoomScale*currentItem.height
-            currentItem.width += zoomScale*currentItem.width
-
-        }
-
-        function zoomOut() {
-            currentItem.height -= zoomScale*currentItem.height
-            currentItem.width -= zoomScale*currentItem.width
         }
     }
 
     ButtonLayout {
-        id: zoomButtons
+        id: zoomButton
         anchors.bottom: nametag.top
         anchors.margins: Theme.paddingMedium
 
         Button {
-            id: zoomIn
-            text: "<b>+</b>"
-            onClicked: ss.zoomIn()
-        }
-
-        Button {
-            id: zoomOut
-            text: "<b>-</b>"
-            onClicked: ss.zoomOut()
+            text: "Resetoi kuva"
+            visible: isZoom
+            onClicked: {
+                ss.currentItem.scale = 1.0
+                ss.currentItem.clip = false
+                isZoom = false
+            }
         }
     }
 
@@ -198,7 +147,6 @@ Page {
 
     onStatusChanged: {
         if (status === PageStatus.Deactivating) {
-            ss.resetSize()
             var temp = currentIndex
             ss.model = null
             ss.currentIndex = temp
