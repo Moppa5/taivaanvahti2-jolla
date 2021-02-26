@@ -45,7 +45,7 @@ Page {
 
         PageHeader {
             id: header
-            title: "Asetukset ja haku"
+            title: qsTr("Asetukset ja haku")
         }
 
         Column {
@@ -63,7 +63,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Havaintokuvat"
+                text: qsTr("Havaintokuvat")
             }
 
             Column {
@@ -73,8 +73,8 @@ Page {
                     id: landscapemode
                     checked: taivas.landscape
                     property string category: "landscape"
-                    text: "Näytä vaakatasossa (landscape)"
-                    description: "Valitse näytetäänkö kuvat vaaka- vai pystytasossa (landscape/portrait)"
+                    text: qsTr("Näytä vaakatasossa (landscape)")
+                    description: qsTr("Valitse näytetäänkö kuvat vaaka- vai pystytasossa (landscape/portrait)")
                 }
             }
 
@@ -83,7 +83,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Tallennus"
+                text: qsTr("Tallennus")
             }
 
             Column {
@@ -94,22 +94,22 @@ Page {
                     id: isConfigurable
                     checked: config
                     property string category: "configurable"
-                    text: "Tallenna hakuparametrit"
-                    description: "Kaikki hakuparametrit tallennetaan käyttökertojen välillä"
+                    text: qsTr("Tallenna hakuparametrit")
+                    description: qsTr("Kaikki hakuparametrit tallennetaan käyttökertojen välillä")
                 }
 
                 TextSwitch {
                     id: dateSavingSwitch
                     checked: saveDate
                     property string category: "savedate"
-                    text: "Tallenna haun aikaväli"
-                    description: "Valittu aikaväli tallennetaan käyttökertojen välillä"
+                    text: qsTr("Tallenna haun aikaväli")
+                    description: qsTr("Valittu aikaväli tallennetaan käyttökertojen välillä")
                 }
             }
 
             Button {
                 id: defaultTime
-                text: "Alusta aikaväli"
+                text: qsTr("Alusta aikaväli")
 
                 onClicked: {
                     start.date = taivas.makeOffsetDate()
@@ -127,13 +127,13 @@ Page {
                     font.pixelSize: Theme.fontSizeMedium
                     color: Theme.highlightColor
                     font.family: Theme.fontFamilyHeading
-                    text: "Aikaväli"
+                    text: qsTr("Aikaväli")
                 }
 
                 ValueButton {
                     id: start
                     width: col.width
-                    label: "Alku"
+                    label: qsTr("Alku")
                     value: Qt.formatDate(date, "d.M.yyyy")
                     property var date: taivas.startDate
 
@@ -152,7 +152,7 @@ Page {
                 ValueButton {
                     id: end
                     width: parent.width
-                    label: "Loppu"
+                    label: qsTr("Loppu")
                     value: Qt.formatDate(date, "d.M.yyyy")
                     property var date: taivas.endDate
 
@@ -173,7 +173,7 @@ Page {
             Button {
                 id: defaultQuery
                 anchors.horizontalCenter: parent.Center
-                text: "Palauta oletushaku"
+                text: qsTr("Palauta oletushaku")
 
                 onClicked: {
                     taivas.searchUser = ""
@@ -211,7 +211,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Kategoria"
+                text: qsTr("Kategoria")
             }
 
             Column {
@@ -222,78 +222,78 @@ Page {
                     id: all
                     checked: true
                     property string category: "all"
-                    text: "Kaikki"
-                    description: "Kaikki taivaan ilmiöt"
+                    text: qsTr("Kaikki")
+                    description: qsTr("Kaikki taivaan ilmiöt")
                 }
 
                 TextSwitch {
                     id: tahtikuva
                     enabled: !all.checked
                     property string category: "tahtikuva"
-                    text: "Syvä avaruus"
-                    description: "Avaruuden kappaleet"
+                    text: qsTr("Syvä avaruus")
+                    description: qsTr("Avaruuden kappaleet")
                 }
 
                 TextSwitch {
                     id: pimennys
                     enabled: !all.checked
                     property string category: "pimennys"
-                    text: "Pimennys"
-                    description: "Kuun tai auringon pimennykset"
+                    text: qsTr("Pimennys")
+                    description: qsTr("Kuun tai auringon pimennykset")
                 }
 
                 TextSwitch {
                     id: tulipallo
                     enabled: !all.checked
                     property string category: "tulipallo"
-                    text: "Tulipallo"
-                    description: "Harvinaisen kirkkaat tähdenlennot"
+                    text: qsTr("Tulipallo")
+                    description: qsTr("Harvinaisen kirkkaat tähdenlennot")
                 }
 
                 TextSwitch {
                     id: revontuli
                     enabled: !all.checked
                     property string category: "revontuli"
-                    text: "Revontulet"
-                    description: "Aurinkotuulen hiukkaset ilmakehässä"
+                    text: qsTr("Revontulet")
+                    description: qsTr("Aurinkotuulen hiukkaset ilmakehässä")
                 }
 
                 TextSwitch {
                     id: yopilvi
                     enabled: !all.checked
                     property string category: "yopilvi"
-                    text: "Valaisevat yöpilvet"
-                    description: "Pilvet avaruuden rajalla"
+                    text: qsTr("Valaisevat yöpilvet")
+                    description: qsTr("Pilvet avaruuden rajalla")
                 }
 
                 TextSwitch {
                     id: myrsky
                     enabled: !all.checked
                     property string category: "myrsky"
-                    text: "Myrskyilmiö"
-                    description: "Erityiset myrskyn ilmiöt"
+                    text: qsTr("Myrskyilmiö")
+                    description: qsTr("Erityiset myrskyn ilmiöt")
                 }
 
                 TextSwitch {
                     id: halo
                     enabled: !all.checked
                     property string category: "halo"
-                    text: "Haloilmiö"
-                    description: "Kirkkaan valonlähteen heijastumat"
+                    text: qsTr("Haloilmiö")
+                    description: qsTr("Kirkkaan valonlähteen heijastumat")
                 }
 
                 TextSwitch {
                     id: muu
                     enabled: !all.checked
                     property string category: "muu"
-                    text: "Muu ilmiö"
-                    description: "Muut valoilmiöt"
+                    text: qsTr("Muu ilmiö")
+                    description: qsTr("Muut valoilmiöt")
                 }
             }
 
             Button {
                 id: release
-                text: "Tyhjennä tekstikentät"
+                text: qsTr("Tyhjennä tekstikentät")
                 onClicked: {
                     city.text = ""
                     observer.text = ""
@@ -306,7 +306,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Havainnon otsikko"
+                text: qsTr("Havainnon otsikko")
             }
 
             TextField {
@@ -314,7 +314,7 @@ Page {
                 width: parent.width
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Mikä tahansa"
+                placeholderText: qsTr("Mikä tahansa")
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
@@ -324,7 +324,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Havainnon tekijä"
+                text: qsTr("Havainnon tekijä")
             }
 
             TextField {
@@ -332,7 +332,7 @@ Page {
                 width: parent.width
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Kuka tahansa"
+                placeholderText: qsTr("Kuka tahansa")
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
@@ -342,7 +342,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Kaupunki"
+                text: qsTr("Kaupunki")
             }
 
             TextField {
@@ -350,7 +350,7 @@ Page {
                 width: parent.width
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Mikä tahansa"
+                placeholderText: qsTr("Mikä tahansa")
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }

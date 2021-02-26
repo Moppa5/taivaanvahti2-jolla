@@ -41,14 +41,14 @@ CoverBackground {
         spacing: Theme.paddingLarge
 
         Label {
-            text: "Viimeisimmät havainnot"
+            text: qsTr("Viimeisimmät havainnot")
             font.pixelSize: Theme.fontSizeTiny
         }
 
         Label {
             id: busy
             visible: taivas.searchRunning
-            text: "Ladataan..."
+            text: qsTr("Ladataan...")
             font.pixelSize: Theme.fontSizeTiny
         }
 

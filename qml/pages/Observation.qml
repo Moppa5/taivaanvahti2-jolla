@@ -52,7 +52,7 @@ Page {
 
             MenuItem {
                 id: comment
-                text: "Jätä kommentti"
+                text: qsTr("Jätä kommentti")
                 onClicked: pageStack.push("Comment.qml")
             }
 
@@ -60,9 +60,9 @@ Page {
                 id: rotate
                 text: {
                     if (!taivas.landscape)
-                        return "Näytä vaakakuvat"
+                        return qsTr("Näytä vaakakuvat")
                     else
-                        return "Näytä pystykuvat"
+                        return qsTr("Näytä pystykuvat")
                 }
                 onClicked: {
 
@@ -155,7 +155,7 @@ Page {
                 font.family: Theme.fontFamilyHeading
                 text: {
                     if (taivas.havainnot.get(taivas.havainto).details !== "")
-                        return "Lisätiedot"
+                        return qsTr("Lisätiedot")
                     else
                         return ""
                 }
@@ -201,7 +201,7 @@ Page {
                         horizontalAlignment: Text.AlignLeft
                         text: {
                             if (taivas.havainnot.get(taivas.havainto).thumbs && taivas.havainnot.get(taivas.havainto).thumbs.count)
-                                return "Kuvat (" + taivas.havainnot.get(taivas.havainto).thumbs.count + ")"
+                                return qsTr("Kuvat (") + taivas.havainnot.get(taivas.havainto).thumbs.count + ")"
                             else
                                 return ""
                         }
@@ -282,7 +282,7 @@ Page {
                 font.family: Theme.fontFamilyHeading
                 text: {
                     if (taivas.havainnot.get(taivas.havainto).equipment !== "")
-                        return "Tekniset tiedot"
+                        return qsTr("Tekniset tiedot")
                     else
                         return ""
                 }
@@ -303,7 +303,7 @@ Page {
                 font.family: Theme.fontFamilyHeading
                 text: {
                     if (taivas.kommentit && taivas.kommentit.count > 0)
-                        return "Kommentit (" + taivas.kommentit.count + ")"
+                        return qsTr("Kommentit (") + taivas.kommentit.count + ")"
                     else
                         return ""
                 }
@@ -374,7 +374,7 @@ Page {
                     color: Theme.highlightColor
                     font.family: Theme.fontFamilyHeading
                     horizontalAlignment: Text.AlignLeft
-                    text: "Havainto taivaanvahdissa"
+                    text: qsTr("Havainto taivaanvahdissa")
                 }
 
                 BackgroundItem {

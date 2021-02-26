@@ -26,9 +26,9 @@ Page {
 
         if (namefield.text === "" || emailfield.text === ""
                 || commentarea.text === "") {
-            setResponse("Täytä kaikki kentät")
+            setResponse(qsTr("Täytä kaikki kentät"))
         } else if (emailfield.text.indexOf("@")===-1) {
-            setResponse("Sähköpostiosoite ei ole kelvollinen")
+            setResponse(qsTr("Sähköpostiosoite ei ole kelvollinen"))
         } else {
             var xhr = new XMLHttpRequest
             var query = "https://www.taivaanvahti.fi/api"
@@ -48,11 +48,11 @@ Page {
 
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     // success
-                    setResponse("Kommentti lähetettiin onnistuneesti", true)
+                    setResponse(qsTr("Kommentti lähetettiin onnistuneesti"), true)
                     clearFields()
                 } else {
-                    setResponse("Kommentointi ei onnistunut, tarkista tiedot tai ilmoita
-                        virheestä ylläpitäjälle")
+                    setResponse(qsTr("Kommentointi ei onnistunut, tarkista tiedot tai ilmoita
+                        virheestä ylläpitäjälle") )
                 }
             }
             xhr.setRequestHeader('Content-Type','text/xml')
@@ -71,14 +71,14 @@ Page {
 
             MenuItem {
                 id: commentnow
-                text: "Lähetä"
+                text: qsTr("Lähetä")
                 onClicked: leaveComment()
             }
         }
 
         PageHeader {
             id: header
-            title: "Jätä kommentti"
+            title: qsTr("Jätä kommentti")
         }
 
         Column {
@@ -97,8 +97,8 @@ Page {
                 wrapMode: Text.WordWrap
                 font.pixelSize: Theme.fontSizeSmall
                 maximumLineCount: 1024
-                text: "Täytä kaikki kentät ja anna kelvollinen sähköpostiosoite."
-                    + " Kommentti tulee näkyväksi, kun Taivaanvahdin ylläpito hyväksyy sen."
+                text: qsTr("Täytä kaikki kentät ja anna kelvollinen sähköpostiosoite.")
+                    + qsTr(" Kommentti tulee näkyväksi, kun Taivaanvahdin ylläpito hyväksyy sen.")
             }
 
             Label {
@@ -116,7 +116,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Nimi"
+                text: qsTr("Nimi")
             }
 
             TextField {
@@ -124,7 +124,7 @@ Page {
                 width: parent.width
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Koko nimesi"
+                placeholderText: qsTr("Koko nimesi")
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
@@ -135,7 +135,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Sähköposti"
+                text: qsTr("Sähköposti")
             }
 
             TextField {
@@ -143,7 +143,7 @@ Page {
                 width: parent.width
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Sähköpostisi"
+                placeholderText: qsTr("Sähköpostisi")
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
@@ -154,7 +154,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Kommentti"
+                text: qsTr("Kommentti")
             }
 
             TextArea {
@@ -162,14 +162,14 @@ Page {
                 width: parent.width
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Kommenttisi tähän"
+                placeholderText: qsTr("Kommenttisi tähän")
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
 
             Button {
                 id: send
-                text: "Lähetä"
+                text: qsTr("Lähetä")
                 onClicked: leaveComment()
             }
         }

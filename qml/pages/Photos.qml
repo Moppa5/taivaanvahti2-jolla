@@ -45,7 +45,7 @@ Page {
 
     PageHeader {
         id: header
-        title: "Sovitettu koko"
+        title: qsTr("Sovitettu koko")
         z: 1
     }
 
@@ -82,9 +82,9 @@ Page {
 
             onScaledChanged: {
                 if (scaled)
-                     header.title = "Sovitettu koko"
+                     header.title = qsTr("Sovitettu koko")
                 else
-                     header.title = "Zoomattu koko"
+                     header.title = qsTr("Zoomattu koko")
             }
 
             function initialSize() {

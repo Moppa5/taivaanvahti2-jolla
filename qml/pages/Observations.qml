@@ -40,11 +40,11 @@ Page {
     property string hintMessage: ""
     property string message: {
         if (list.count == 0 && !taivas.searchRunning && !taivas.fetchError) {
-            hintMessage = "Vedä alas päivittääksesi tai muuttaaksesi hakuehtoja"
-            return "Ei havaintoja"
+            hintMessage = qsTr("Vedä alas päivittääksesi tai muuttaaksesi hakuehtoja")
+            return qsTr("Ei havaintoja")
         } else if (taivas.fetchError) {
-            hintMessage = "Rajapintahaku on voinut muuttua. Ota yhteyttä kehittäjään"
-            return "Rajapintahaussa tapahtui virhe, tarkista verkkoyhteys"
+            hintMessage = qsTr("Rajapintahaku on voinut muuttua. Ota yhteyttä kehittäjään")
+            return qsTr("Rajapintahaussa tapahtui virhe, tarkista verkkoyhteys")
         } else {
             hintMessage = ""
             return ""
@@ -69,17 +69,17 @@ Page {
             busy: taivas.searchRunning
 
             MenuItem {
-                text: "Tietoja"
+                text: qsTr("Tietoja")
                 onClicked: pageStack.push("Info.qml")
             }
 
             MenuItem {
-                text: "Asetukset"
+                text: qsTr("Asetukset")
                 onClicked: pageStack.push("Search.qml")
             }
 
             MenuItem {
-                text: "Päivitä"
+                text: qsTr("Päivitä")
                 onClicked: {
                     pulley.close()
                     taivas.havainnot.clear()
@@ -90,7 +90,7 @@ Page {
 
         header: PageHeader {
             id: header
-            title: "Havainnot"
+            title: qsTr("Havainnot")
         }
 
         ViewPlaceholder {
@@ -149,21 +149,21 @@ Page {
                         var total = ""
 
                         if (thumbnails.count === 0 && comments == "0") {
-                            return "Ei kuvia / kommentteja"
+                            return qsTr("Ei kuvia / kommentteja")
                         } else {
                             if (thumbnails.count !== 0) {
                                 if (thumbnails.count > 1) {
-                                    total += thumbnails.count + " kuvaa "
+                                    total += thumbnails.count + qsTr(" kuvaa ")
                                 } else {
-                                    total += thumbnails.count + " kuva "
+                                    total += thumbnails.count + qsTr(" kuva ")
                                 }
                             }
 
                             if (comments !== "0") {
                                 if (comments === "1") {
-                                    total += comments + " kommentti "
+                                    total += comments + qsTr(" kommentti ")
                                 } else {
-                                    total += comments + " kommenttia "
+                                    total += comments + qsTr(" kommenttia ")
                                 }
                             }
                         return total

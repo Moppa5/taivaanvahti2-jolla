@@ -41,7 +41,7 @@ Page {
 
         PageHeader {
             id: header
-            title: "Taivaanvahti"
+            title: qsTr("Taivaanvahti")
         }
 
         Column {
@@ -60,7 +60,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Uudesta versiosta"
+                text: qsTr("Uudesta versiosta")
             }
 
             Label {
@@ -69,11 +69,11 @@ Page {
                 wrapMode: Text.WordWrap
                 maximumLineCount: 1024
                 font.pixelSize: Theme.fontSizeSmall
-                text: "Alkuperäistä Taivaanvahti-sovellusta on kehitetty eteenpäin. "
-                      + "Sovelluksella on nyt tuki Sailfish 3 -versiolle ja lisäksi "
-                      + "mukaan on lisätty uusia ominaisuuksia kuten havaintohakujen "
-                      + "tallennus, kaupunkiparametri, valinta kuvien näyttöasennolle ja kommentin lähetys. "
-                      + "Lisäksi on tehty pieniä tyylimuutoksia"
+                text: qsTr("Alkuperäistä Taivaanvahti-sovellusta on kehitetty eteenpäin.") +
+                      qsTr(" Sovelluksella on nyt tuki Sailfish 3 -versiolle ja lisäksi") +
+                      qsTr(" mukaan on lisätty uusia ominaisuuksia kuten havaintohakujen") +
+                      qsTr(" tallennus, kaupunkiparametri, valinta kuvien näyttöasennolle ja kommentin lähetys.") +
+                      qsTr(" Lisäksi on tehty pieniä tyylimuutoksia ")
             }
 
             Label {
@@ -82,7 +82,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Taivaanvahdista"
+                text: qsTr("Taivaanvahdista")
             }
 
             Label {
@@ -91,8 +91,8 @@ Page {
                 wrapMode: Text.WordWrap
                 maximumLineCount: 1024
                 font.pixelSize: Theme.fontSizeSmall
-                text: "Taivaanvahti (taivaanvahti.fi) on Ursan havaintojärjestelmä, jonka tietokantaan "
-                    + "kerätään tähtitieteellisten ja ilmakehän ilmiöiden havaintoja."
+                text: qsTr("Taivaanvahti (taivaanvahti.fi) on Ursan havaintojärjestelmä, jonka tietokantaan") +
+                      qsTr(" kerätään tähtitieteellisten ja ilmakehän ilmiöiden havaintoja.")
             }
 
             Label {
@@ -100,10 +100,10 @@ Page {
                 wrapMode: Text.WordWrap
                 maximumLineCount: 1024
                 font.pixelSize: Theme.fontSizeSmall
-                text: "Tämä sovellus ei ole virallinen osa Taivaanvahtijärjestelmää, "
-                    + "mutta se on kehitetty Taivaanvahdin ylläpidon avulla. Tähän sovellukseen "
-                    + "liittyvät ongelmat tai ehdotukset voi laittaa GitHub-palveluun issue-pyyntöinä. "
-                    + "Palaute on sallittua ja toivottua"
+                text: qsTr("Tämä sovellus ei ole virallinen osa Taivaanvahtijärjestelmää,") +
+                      qsTr(" mutta se on kehitetty Taivaanvahdin ylläpidon avulla. Tähän sovellukseen") +
+                      qsTr(" liittyvät ongelmat tai ehdotukset voi laittaa GitHub-palveluun issue-pyyntöinä.") +
+                      qsTr(" Palaute on sallittua ja toivottua")
             }
 
             Label {
@@ -111,7 +111,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Tekijänoikeuksista"
+                text: qsTr("Tekijänoikeuksista")
             }
 
             Label {
@@ -119,10 +119,10 @@ Page {
                 wrapMode: Text.WordWrap
                 maximumLineCount: 1024
                 font.pixelSize: Theme.fontSizeSmall
-                text: "Havaintojen kuvien ja tekstien tekijänoikeudet säilyvät havaitsijalla. "
-                    + "Lähettäessään havainnon Taivaanvahtiin tekijä luovuttaa vain oikeuden "
-                    + "julkaista kuvat ja teksti havaintojärjestelmässä. Tämän vuoksi kuvia ei "
-                    + "voi käyttää esimerkiksi taustakuvana ilman erillistä lupaa tekijältä."
+                text: qsTr("Havaintojen kuvien ja tekstien tekijänoikeudet säilyvät havaitsijalla.") +
+                      qsTr(" Lähettäessään havainnon Taivaanvahtiin tekijä luovuttaa vain oikeuden") +
+                      qsTr(" julkaista kuvat ja teksti havaintojärjestelmässä. Tämän vuoksi kuvia ei") +
+                      qsTr(" voi käyttää esimerkiksi taustakuvana ilman erillistä lupaa tekijältä.")
             }
 
             Label {
@@ -130,7 +130,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Kotisivu"
+                text: qsTr("Kotisivu")
             }
 
             BackgroundItem {
@@ -152,7 +152,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Alkuperäinen kehittäjä"
+                text: qsTr("Alkuperäinen kehittäjä")
             }
 
             BackgroundItem {
@@ -176,7 +176,7 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Nykyinen kehittäjä"
+                text: qsTr("Nykyinen kehittäjä")
             }
 
             BackgroundItem {
