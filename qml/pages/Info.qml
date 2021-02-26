@@ -70,7 +70,7 @@ Page {
                 maximumLineCount: 1024
                 font.pixelSize: Theme.fontSizeSmall
                 text: qsTr("Alkuperäistä Taivaanvahti-sovellusta on kehitetty eteenpäin.") +
-                      qsTr(" Sovelluksella on nyt tuki Sailfish 3 -versiolle ja lisäksi") +
+                      qsTr(" Sovelluksella on tuki Sailfish 4 -versiolle ja lisäksi") +
                       qsTr(" mukaan on lisätty uusia ominaisuuksia kuten havaintohakujen") +
                       qsTr(" tallennus, kaupunkiparametri, valinta kuvien näyttöasennolle ja kommentin lähetys.") +
                       qsTr(" Lisäksi on tehty pieniä tyylimuutoksia ")

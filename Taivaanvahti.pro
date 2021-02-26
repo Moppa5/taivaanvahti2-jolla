@@ -6,6 +6,7 @@
 #         - desktop icon filename must be changed
 #         - desktop filename must be changed
 #         - icon definition filename in desktop file must be changed
+
 TARGET = harbour-taivaanvahti2
 
 CONFIG += sailfishapp
@@ -31,4 +32,9 @@ DISTFILES += \
     qml/pages/Observation.qml \
     qml/pages/Observations.qml \
     qml/pages/Search.qml \
-    rpm/harbour-taivaanvahti2.spec
+    rpm/harbour-taivaanvahti2.spec \
+    translations/*.ts
+
+#CONFIG += sailfishapp_i18n
+
+TRANSLATIONS += translations/harbour-taivaanvahti2-en.ts
