@@ -22,7 +22,7 @@
         <location filename="../qml/pages/Comment.qml" line="54"/>
         <source>Kommentointi ei onnistunut, tarkista tiedot tai ilmoita
                         virheestä ylläpitäjälle</source>
-        <translation>Commenting was not successfull, check the fields and details or inform the developer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/Comment.qml" line="74"/>
@@ -38,7 +38,7 @@
     <message>
         <location filename="../qml/pages/Comment.qml" line="100"/>
         <source>Täytä kaikki kentät ja anna kelvollinen sähköpostiosoite.</source>
-        <translation>Fill all the fields and give a valid email address</translation>
+        <translation>Fill all the fields and give a valid email address.</translation>
     </message>
     <message>
         <location filename="../qml/pages/Comment.qml" line="101"/>
@@ -99,7 +99,7 @@
     <message>
         <location filename="../qml/pages/Info.qml" line="63"/>
         <source>Uudesta versiosta</source>
-        <translation>The new version</translation>
+        <translation>About the new version</translation>
     </message>
     <message>
         <location filename="../qml/pages/Info.qml" line="72"/>
@@ -107,13 +107,9 @@
         <translation>The original Taivaanvahti application has been developed further.</translation>
     </message>
     <message>
-        <source> Sovelluksella on nyt tuki Sailfish 3 -versiolle ja lisäksi</source>
-        <translation type="vanished"> The application has now support for Sailfish 4 and</translation>
-    </message>
-    <message>
         <location filename="../qml/pages/Info.qml" line="73"/>
         <source> Sovelluksella on tuki Sailfish 4 -versiolle ja lisäksi</source>
-        <translation type="unfinished"></translation>
+        <translation> The application supports Sailfish 4 and</translation>
     </message>
     <message>
         <location filename="../qml/pages/Info.qml" line="74"/>

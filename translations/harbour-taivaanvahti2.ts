@@ -108,7 +108,7 @@
     </message>
     <message>
         <location filename="../qml/pages/Info.qml" line="73"/>
-        <source> Sovelluksella on nyt tuki Sailfish 3 -versiolle ja lisäksi</source>
+        <source> Sovelluksella on tuki Sailfish 4 -versiolle ja lisäksi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

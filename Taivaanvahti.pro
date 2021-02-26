@@ -35,6 +35,6 @@ DISTFILES += \
     rpm/harbour-taivaanvahti2.spec \
     translations/*.ts
 
-#CONFIG += sailfishapp_i18n
+CONFIG += sailfishapp_i18n
 
 TRANSLATIONS += translations/harbour-taivaanvahti2-en.ts
