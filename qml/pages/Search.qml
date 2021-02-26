@@ -324,24 +324,6 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: "Kaupunki"
-            }
-
-            TextField {
-                id: city
-                width: parent.width
-                focus: false
-                font.pixelSize: Theme.fontSizeSmall
-                placeholderText: "Mikä tahansa"
-                EnterKey.iconSource: "image://theme/icon-m-enter-close"
-                EnterKey.onClicked: focus = false
-            }
-
-            Label {
-                anchors.left: parent.left
-                font.pixelSize: Theme.fontSizeMedium
-                color: Theme.highlightColor
-                font.family: Theme.fontFamilyHeading
                 text: "Havainnon tekijä"
             }
 
@@ -351,6 +333,24 @@ Page {
                 focus: false
                 font.pixelSize: Theme.fontSizeSmall
                 placeholderText: "Kuka tahansa"
+                EnterKey.iconSource: "image://theme/icon-m-enter-close"
+                EnterKey.onClicked: focus = false
+            }
+
+            Label {
+                anchors.left: parent.left
+                font.pixelSize: Theme.fontSizeMedium
+                color: Theme.highlightColor
+                font.family: Theme.fontFamilyHeading
+                text: "Kaupunki"
+            }
+
+            TextField {
+                id: city
+                width: parent.width
+                focus: false
+                font.pixelSize: Theme.fontSizeSmall
+                placeholderText: "Mikä tahansa"
                 EnterKey.iconSource: "image://theme/icon-m-enter-close"
                 EnterKey.onClicked: focus = false
             }
