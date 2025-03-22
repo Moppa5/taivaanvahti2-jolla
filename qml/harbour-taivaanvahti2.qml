@@ -60,7 +60,7 @@ ApplicationWindow
     // Config related parameters
     property bool configurable: false
     property bool configured: false
-    property bool landscape: true
+    property bool landscape: false
     property bool searchRunning: false
     property bool detailedSearchRunning: false
     property bool commentSearchRunning: false
