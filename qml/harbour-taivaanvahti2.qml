@@ -309,6 +309,18 @@ ApplicationWindow
         xhr.send();
     }
 
+    /// Parses the given comment and replaces character codes with their readable form
+    function parseComment(comment) {
+
+        // Fix the letters ä, ö, and some space
+        const fixA = /&auml;/gi
+        const fixO = /&ouml;/gi
+        const space = /&nbsp;/gi
+        comment.text = comment.text.replace(fixA, 'ä');
+        comment.text = comment.text.replace(fixO, 'ö');
+        comment.text = comment.text.replace(space, ' ');
+    }
+
     function kommentoi() {
 
         if (commentError) {
@@ -329,7 +341,9 @@ ApplicationWindow
                     return
                 var results = JSON.parse(xhr.responseText)
                 for (var i in results.comment) {
-                    kommentit.append(results.comment[i])
+                    var comment = results.comment[i];
+                    parseComment(comment);
+                    kommentit.append(comment)
                 }
             }
 
