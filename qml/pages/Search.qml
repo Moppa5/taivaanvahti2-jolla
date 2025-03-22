@@ -34,7 +34,6 @@ Page {
     id: page
     property bool dialogRunning: false
     property bool reset: false
-    property bool saveDate: false
 
     SilicaFlickable {
         id: flick
@@ -90,8 +89,8 @@ Page {
                 width: parent.width
 
                 TextSwitch {
-                    id: isConfigurable
-                    checked: taivas.configurable
+                    id: saveQueryParams
+                    checked: taivas.saveQueryParams
                     property string category: "configurable"
                     text: qsTr("Tallenna hakuparametrit")
                     description: qsTr("Kaikki hakuparametrit tallennetaan käyttökertojen välillä")
@@ -99,7 +98,7 @@ Page {
 
                 TextSwitch {
                     id: dateSavingSwitch
-                    checked: saveDate
+                    checked: taivas.saveDates
                     property string category: "savedate"
                     text: qsTr("Tallenna haun aikaväli")
                     description: qsTr("Valittu aikaväli tallennetaan käyttökertojen välillä")
@@ -400,7 +399,8 @@ Page {
 
         // Update configuration values
         taivas.setLandScape(landscapemode.checked);
-        taivas.setConfigurable(isConfigurable.checked);
+        taivas.setSaveQueryParams(saveQueryParams.checked);
+        taivas.setSaveDates(dateSavingSwitch.checked);
 
         taivas.havaitse()
         reset = false

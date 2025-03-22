@@ -40,8 +40,11 @@ ApplicationWindow
         id: config
         path: "/apps/harbour-taivaanvahti2"
 
+        // Generic controls
         property string landScapeKey: "landScape";
-        property string configureKey: "configure";
+        property string saveQueryParams: "saveQuery";
+        property string datesKey: "saveDates";
+
         // Date params
         property string startKey: "startDate";
         property string endKey: "endDate";
@@ -80,9 +83,9 @@ ApplicationWindow
     property var viimeiset: ListModel {}
 
     // Config related parameters
-    property bool configurable: false
-    property bool configured: false
+    property bool saveQueryParams: false
     property bool landscape: false
+    property bool saveDates: false
 
     // Running booleans
     property bool searchRunning: false
@@ -140,10 +143,10 @@ ApplicationWindow
         config.sync();
     }
 
-    // Sets the status of query params saving and stores it into configuration
-    function setConfigurable(value) {
-        configurable = value;
-        config.setValue(config.configureKey, value);
+    // Stores the query params
+    function setSaveQueryParams(value) {
+        saveQueryParams = value;
+        config.setValue(config.saveQueryParams, value);
 
         if (value) {
 
@@ -156,6 +159,16 @@ ApplicationWindow
             config.setValue(config.cityKey, searchCity);
             config.setValue(config.searchKey, taivas.searchUser);
         }
+
+        config.sync();
+    }
+
+    // Stores the current start and end date values
+    function setSaveDates(value) {
+        saveDates = value;
+        config.setValue(config.datesKey, value);
+        config.setValue(config.startKey, taivas.startDate);
+        config.setValue(config.endKey, taivas.endDate);
 
         config.sync();
     }
@@ -173,10 +186,11 @@ ApplicationWindow
     // Main initialization called when observation page is initalized
     function configure() {
         landscape = config.value(config.landScapeKey, false);
-        configurable = config.value(config.configureKey, false);
+        saveQueryParams = config.value(config.saveQueryParams, false);
+        saveDates = config.value(config.datesKey, false);
 
         // Read config values if config store is on
-        if (configurable) {
+        if (saveQueryParams) {
             for (var category in searchCategories) {
                readAndStoreCategoryValue(category);
             }
@@ -190,6 +204,11 @@ ApplicationWindow
             searchTitle = title;
             searchCity = city;
             searchUser = query;
+        }
+
+        if (saveDates) {
+            taivas.startDate = config.value(config.startKey, taivas.startDate);
+            taivas.endDate = config.value(config.endKey, taivas.endDate);
         }
 
         taivas.havaitse()
