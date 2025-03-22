@@ -114,7 +114,6 @@ Page {
                 onClicked: {
                     start.date = taivas.makeOffsetDate()
                     end.date = new Date()
-                    taivas.resetDates()
                 }
             }
 
@@ -143,8 +142,9 @@ Page {
 
                         dialog.accepted.connect(function() {
                             page.dialogRunning = false
-                            if (dialog.date < end.date)
+                            if (dialog.date < end.date) {
                                 taivas.startDate = dialog.date
+                            }
                         })
                     }
                 }
@@ -163,8 +163,9 @@ Page {
 
                         dialog.accepted.connect(function() {
                             page.dialogRunning = false
-                            if (dialog.date > start.date && dialog.date <= currentDate)
+                            if (dialog.date > start.date && dialog.date <= currentDate) {
                                 taivas.endDate = dialog.date
+                            }
                         })
                     }
                 }
@@ -190,17 +191,9 @@ Page {
                     for (var p in taivas.searchCategories) {
                         if (p !== "all") {
                             taivas.searchCategories[p] = false
-                            taivas.setConfigureStatus(p,false);
                         }
                     }
 
-                    if (!saveDate)
-                        taivas.resetDates()
-
-                    taivas.setConfigureStatus("all",true)
-                    taivas.setParameters("","","")
-
-                    taivas.writeStatus()
                     taivas.reset()
                     reset = true
                 }
@@ -365,14 +358,6 @@ Page {
             child.checked = taivas.searchCategories[child.category]
         }
 
-        if (taivas.isConfigurable() || taivas.configurable) {
-            config = true
-        }
-
-        if ( !taivas.isDateSaved() ) {
-            saveDate = true
-        }
-
         observer.text = taivas.searchObserver
         title.text = taivas.searchTitle
         city.text = taivas.searchCity
@@ -388,8 +373,6 @@ Page {
         taivas.searchUser = ""
         taivas.searchCategories["all"] = all.checked
 
-        // If config is enabled, write the options
-
         if (!all.checked) {
             for (var i = 1; i < category.children.length; i++) {
                 var child = category.children[i]
@@ -398,17 +381,8 @@ Page {
                 if (child.checked) {
                     taivas.searchUser += "&category=" + child.category
                     taivas.configurequery = ""
-                    taivas.setConfigureStatus(child.category, true)
                 }
             }
-
-            taivas.setConfigureStatus("all",false)
-        }
-
-        if (isConfigurable.checked) {
-            taivas.setConfigurable(true)
-        } else {
-            taivas.setConfigurable(false)
         }
 
         if (observer.text)
@@ -421,29 +395,9 @@ Page {
         taivas.searchObserver = observer.text
         taivas.searchTitle = title.text
         taivas.searchCity = city.text
-        taivas.setParameters(observer.text, title.text, city.text)
 
         taivas.startDate = start.date
         taivas.endDate = end.date
-
-        if (dateSavingSwitch.checked) {
-            taivas.saveDate(start.date,"start")
-            taivas.saveDate(end.date,"end")
-        }
-
-        if (!dateSavingSwitch.checked) {
-            taivas.resetDates()
-        }
-
-        if (landscapemode.checked) {
-            taivas.setLandScape(true)
-            taivas.landscape = true
-        } else {
-            taivas.setLandScape(false)
-            taivas.landscape = false
-        }
-
-        taivas.writeStatus()
 
         taivas.havaitse()
         reset = false

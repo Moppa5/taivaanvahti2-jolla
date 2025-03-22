@@ -11,16 +11,14 @@ TARGET = harbour-taivaanvahti2
 
 CONFIG += sailfishapp
 
-SOURCES += src/Taivaanvahti.cpp \
-    src/config.cpp
+SOURCES += src/Taivaanvahti.cpp
 
 OTHER_FILES += \
     rpm/harbour-taivaanvahti.yaml \
     qml/cover/CoverPage.qml \
     qml/pages/Photos.qml \
 
-HEADERS += \
-    src/config.h
+HEADERS +=
 
 DISTFILES += \
     UpdateLog.txt \

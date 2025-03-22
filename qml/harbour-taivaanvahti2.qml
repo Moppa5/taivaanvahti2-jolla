@@ -30,18 +30,10 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "pages"
-import Configuration 1.0
 
 ApplicationWindow
 {
     id: taivas
-
-    ConfigReader {
-        /* ConfigReader for reading and writing application data
-         * Take a look at config.cpp and config.h for better info
-         */
-        id: config
-    }
 
     initialPage: Qt.createComponent("pages/Observations.qml")
     cover: Qt.createComponent("cover/CoverPage.qml")
@@ -101,35 +93,6 @@ ApplicationWindow
         "muu": false
     }
 
-    // JavaScript functions start
-
-    function resetDates() {
-        config.resetDate()
-    }
-
-    function isDateSaved() {
-        return config.fetchDate()
-    }
-
-    function saveDate(date, dateType) {
-        // Date and whether start or end
-        config.setDate(date,dateType)
-    }
-
-    function setParameters(user, title, city) {
-        config.setSearchParameters(user,title,city)
-    }
-
-    function writeStatus() {
-        // Write config status
-        config.writeStatus()
-    }
-
-    function setConfigureStatus(object, status) {
-        // Set true/false status for each config object
-        config.setStatus(object,status)
-    }
-
     function reset() {
         havainnot.clear()
         kommentit.clear()
@@ -138,79 +101,7 @@ ApplicationWindow
         taivas.havaitse()
     }
 
-    function isConfigurable() {
-        // Whether config is enabled or not
-        return config.isConfigurable()
-    }
-
-    function setConfigurable(status) {
-        // Set config on or off
-        config.setConfigurable(status)
-    }
-
-    function setLandScape(status) {
-        // Portrait or landscape images
-        config.notLandScape(status)
-    }
-
     function configure() {
-        // Application launch configuration
-
-        if (config.readStatus() ) {
-            // Date will be fetched even if not configurable
-            if (!config.fetchDate()) {
-                // Dates have been saved earlier
-                startDate = config.fetchRealDate("start")
-
-                if (endDate <= config.fetchRealDate("end")) {
-                    endDate = config.fetchRealDate("end")
-                }
-            }
-
-            if (config.isConfigurable()) {
-            // Update searchCategories from file
-                for (var p in searchCategories) {
-                    searchCategories[p] = config.fetchStatus(p)
-                }
-
-                if (config.fetchSearchUser() !== "") {
-                    searchUser += "&user=" + config.fetchSearchUser()
-                    searchObserver = config.fetchSearchUser()
-                }
-
-                if (config.fetchSearchCity() !== "") {
-                    searchUser += "&city=" + config.fetchSearchCity()
-                    searchCity = config.fetchSearchCity()
-                }
-
-                if (config.fetchSearchTitle() !== "") {
-                    searchUser += "&title=" + config.fetchSearchTitle()
-                    searchTitle = config.fetchSearchTitle()
-                }
-
-                // Update categories for query
-                for (var i in searchCategories) {
-                    if (searchCategories[i]) {
-                        configurequery += "&category=" + i
-                    }
-                }
-            }
-        } else {
-            /* No data file found for taivaanvahti
-             * Generating new using Config class
-             */
-            for (var object in searchCategories) {
-                // Set the current default state for QMap
-                config.setStatus(object,searchCategories[object]);
-            }
-
-            config.writeStatus();
-        }
-
-        if (!config.isLandScape())
-            // If user wants to use Portrait or LandScape
-            landscape = false
-
         taivas.havaitse()
     }
 
