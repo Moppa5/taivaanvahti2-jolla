@@ -65,9 +65,7 @@ Page {
                         return qsTr("Näytä pystykuvat")
                 }
                 onClicked: {                
-                    taivas.landscape = !taivas.landscape;
-
-                    // TODO: Write the config
+                    taivas.setLandScape(!taivas.landscape);
                 }
             }
         }

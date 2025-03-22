@@ -392,6 +392,8 @@ Page {
         if (city.text)
             taivas.searchUser += "&city=" + encodeURIComponent(city.text)
 
+        taivas.setLandScape(landscapemode.checked);
+
         taivas.searchObserver = observer.text
         taivas.searchTitle = title.text
         taivas.searchCity = city.text

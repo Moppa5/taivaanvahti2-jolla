@@ -29,11 +29,19 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import Nemo.Configuration 1.0
 import "pages"
 
 ApplicationWindow
 {
     id: taivas
+
+    ConfigurationGroup {
+        id: config
+        path: "/apps/harbour-taivaanvahti2"
+
+        property string landScapeKey: "landScapeKey";
+    }
 
     initialPage: Qt.createComponent("pages/Observations.qml")
     cover: Qt.createComponent("cover/CoverPage.qml")
@@ -101,7 +109,17 @@ ApplicationWindow
         taivas.havaitse()
     }
 
+    function setLandScape(value) {
+        taivas.landscape = value;
+        config.setValue(config.landScapeKey, value);
+        config.sync();
+    }
+
+    // Main initialization called when observation page is initalized
     function configure() {
+        // Read values from configuration and use them
+        landscape = config.value(config.landScapeKey, false);
+
         taivas.havaitse()
     }
 
