@@ -40,7 +40,29 @@ ApplicationWindow
         id: config
         path: "/apps/harbour-taivaanvahti2"
 
-        property string landScapeKey: "landScapeKey";
+        property string landScapeKey: "landScape";
+        property string configureKey: "configure";
+        // Date params
+        property string startKey: "startDate";
+        property string endKey: "endDate";
+        property string categoriesKey: "queryCategories";
+
+        // Categories
+        property string allKey: "all";
+        property string deepSpaceKey: "tahtikuva";
+        property string eclipseKey: "pimennys";
+        property string fireBallKey: "tulipallo";
+        property string auroraKey: "revontuli";
+        property string cloudKey: "yopilvi";
+        property string stormKey: "myrsky";
+        property string haloKey: "halo";
+        property string otherKey: "muu";
+
+        // Basic params
+        property string searchKey: "searchUser";
+        property string observerKey: "observer";
+        property string titleKey: "title";
+        property string cityKey: "city";
     }
 
     initialPage: Qt.createComponent("pages/Observations.qml")
@@ -61,6 +83,8 @@ ApplicationWindow
     property bool configurable: false
     property bool configured: false
     property bool landscape: false
+
+    // Running booleans
     property bool searchRunning: false
     property bool detailedSearchRunning: false
     property bool commentSearchRunning: false
@@ -109,16 +133,64 @@ ApplicationWindow
         taivas.havaitse()
     }
 
+    // Sets the landscape and stores the value into configuration
     function setLandScape(value) {
-        taivas.landscape = value;
+        landscape = value;
         config.setValue(config.landScapeKey, value);
         config.sync();
     }
 
+    // Sets the status of query params saving and stores it into configuration
+    function setConfigurable(value) {
+        configurable = value;
+        config.setValue(config.configureKey, value);
+
+        if (value) {
+
+            for (var category in searchCategories) {
+                setCategoryValue(category);
+            }
+
+            config.setValue(config.observerKey, searchObserver);
+            config.setValue(config.titleKey, searchTitle);
+            config.setValue(config.cityKey, searchCity);
+            config.setValue(config.searchKey, taivas.searchUser);
+        }
+
+        config.sync();
+    }
+
+    // Stores the current category value for the value key
+    function setCategoryValue(valueKey) {
+        config.setValue(valueKey, searchCategories[valueKey]);
+    }
+
+    // Reads the stored category value for the value key or reverts to default
+    function readAndStoreCategoryValue(valueKey) {
+        searchCategories[valueKey] = config.value(valueKey, searchCategories[valueKey]);
+    }
+
     // Main initialization called when observation page is initalized
     function configure() {
-        // Read values from configuration and use them
         landscape = config.value(config.landScapeKey, false);
+        configurable = config.value(config.configureKey, false);
+
+        // Read config values if config store is on
+        if (configurable) {
+            for (var category in searchCategories) {
+               readAndStoreCategoryValue(category);
+            }
+
+            var query = config.value(config.searchKey, searchUser);
+            var observer = config.value(config.observerKey, searchObserver);
+            var title = config.value(config.titleKey, searchTitle);
+            var city = config.value(config.cityKey, searchCity);
+
+            searchObserver = observer;
+            searchTitle = title;
+            searchCity = city;
+            searchUser = query;
+        }
 
         taivas.havaitse()
     }

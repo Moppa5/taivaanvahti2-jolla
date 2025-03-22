@@ -34,7 +34,6 @@ Page {
     id: page
     property bool dialogRunning: false
     property bool reset: false
-    property bool config: false
     property bool saveDate: false
 
     SilicaFlickable {
@@ -92,7 +91,7 @@ Page {
 
                 TextSwitch {
                     id: isConfigurable
-                    checked: config
+                    checked: taivas.configurable
                     property string category: "configurable"
                     text: qsTr("Tallenna hakuparametrit")
                     description: qsTr("Kaikki hakuparametrit tallennetaan käyttökertojen välillä")
@@ -392,14 +391,16 @@ Page {
         if (city.text)
             taivas.searchUser += "&city=" + encodeURIComponent(city.text)
 
-        taivas.setLandScape(landscapemode.checked);
-
         taivas.searchObserver = observer.text
         taivas.searchTitle = title.text
         taivas.searchCity = city.text
 
         taivas.startDate = start.date
         taivas.endDate = end.date
+
+        // Update configuration values
+        taivas.setLandScape(landscapemode.checked);
+        taivas.setConfigurable(isConfigurable.checked);
 
         taivas.havaitse()
         reset = false
