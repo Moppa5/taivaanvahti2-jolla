@@ -64,15 +64,8 @@ Page {
                     else
                         return qsTr("Näytä pystykuvat")
                 }
-                onClicked: {
-
-                    if (taivas.landscape)
-                        taivas.landscape = false
-                    else
-                        taivas.landscape = true
-
-                    taivas.setLandScape(taivas.landscape)
-                    taivas.writeStatus()
+                onClicked: {                
+                    taivas.setLandScape(!taivas.landscape);
                 }
             }
         }

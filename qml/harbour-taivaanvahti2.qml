@@ -29,18 +29,43 @@
 
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import Nemo.Configuration 1.0
 import "pages"
-import Configuration 1.0
 
 ApplicationWindow
 {
     id: taivas
 
-    ConfigReader {
-        /* ConfigReader for reading and writing application data
-         * Take a look at config.cpp and config.h for better info
-         */
+    ConfigurationGroup {
         id: config
+        path: "/apps/harbour-taivaanvahti2"
+
+        // Generic controls
+        property string landScapeKey: "landScape";
+        property string saveQueryParams: "saveQuery";
+        property string datesKey: "saveDates";
+
+        // Date params
+        property string startKey: "startDate";
+        property string endKey: "endDate";
+        property string categoriesKey: "queryCategories";
+
+        // Categories
+        property string allKey: "all";
+        property string deepSpaceKey: "tahtikuva";
+        property string eclipseKey: "pimennys";
+        property string fireBallKey: "tulipallo";
+        property string auroraKey: "revontuli";
+        property string cloudKey: "yopilvi";
+        property string stormKey: "myrsky";
+        property string haloKey: "halo";
+        property string otherKey: "muu";
+
+        // Basic params
+        property string searchKey: "searchUser";
+        property string observerKey: "observer";
+        property string titleKey: "title";
+        property string cityKey: "city";
     }
 
     initialPage: Qt.createComponent("pages/Observations.qml")
@@ -58,9 +83,11 @@ ApplicationWindow
     property var viimeiset: ListModel {}
 
     // Config related parameters
-    property bool configurable: false
-    property bool configured: false
+    property bool saveQueryParams: false
     property bool landscape: false
+    property bool saveDates: false
+
+    // Running booleans
     property bool searchRunning: false
     property bool detailedSearchRunning: false
     property bool commentSearchRunning: false
@@ -101,35 +128,6 @@ ApplicationWindow
         "muu": false
     }
 
-    // JavaScript functions start
-
-    function resetDates() {
-        config.resetDate()
-    }
-
-    function isDateSaved() {
-        return config.fetchDate()
-    }
-
-    function saveDate(date, dateType) {
-        // Date and whether start or end
-        config.setDate(date,dateType)
-    }
-
-    function setParameters(user, title, city) {
-        config.setSearchParameters(user,title,city)
-    }
-
-    function writeStatus() {
-        // Write config status
-        config.writeStatus()
-    }
-
-    function setConfigureStatus(object, status) {
-        // Set true/false status for each config object
-        config.setStatus(object,status)
-    }
-
     function reset() {
         havainnot.clear()
         kommentit.clear()
@@ -138,78 +136,80 @@ ApplicationWindow
         taivas.havaitse()
     }
 
-    function isConfigurable() {
-        // Whether config is enabled or not
-        return config.isConfigurable()
+    // Sets the landscape and stores the value into configuration
+    function setLandScape(value) {
+        landscape = value;
+        config.setValue(config.landScapeKey, value);
+        config.sync();
     }
 
-    function setConfigurable(status) {
-        // Set config on or off
-        config.setConfigurable(status)
-    }
+    // Stores the query params
+    function setSaveQueryParams(value) {
+        saveQueryParams = value;
+        config.setValue(config.saveQueryParams, value);
 
-    function setLandScape(status) {
-        // Portrait or landscape images
-        config.notLandScape(status)
-    }
+        if (value) {
 
-    function configure() {
-        // Application launch configuration
-
-        if (config.readStatus() ) {
-            // Date will be fetched even if not configurable
-            if (!config.fetchDate()) {
-                // Dates have been saved earlier
-                startDate = config.fetchRealDate("start")
-
-                if (endDate <= config.fetchRealDate("end")) {
-                    endDate = config.fetchRealDate("end")
-                }
+            for (var category in searchCategories) {
+                setCategoryValue(category);
             }
 
-            if (config.isConfigurable()) {
-            // Update searchCategories from file
-                for (var p in searchCategories) {
-                    searchCategories[p] = config.fetchStatus(p)
-                }
-
-                if (config.fetchSearchUser() !== "") {
-                    searchUser += "&user=" + config.fetchSearchUser()
-                    searchObserver = config.fetchSearchUser()
-                }
-
-                if (config.fetchSearchCity() !== "") {
-                    searchUser += "&city=" + config.fetchSearchCity()
-                    searchCity = config.fetchSearchCity()
-                }
-
-                if (config.fetchSearchTitle() !== "") {
-                    searchUser += "&title=" + config.fetchSearchTitle()
-                    searchTitle = config.fetchSearchTitle()
-                }
-
-                // Update categories for query
-                for (var i in searchCategories) {
-                    if (searchCategories[i]) {
-                        configurequery += "&category=" + i
-                    }
-                }
-            }
-        } else {
-            /* No data file found for taivaanvahti
-             * Generating new using Config class
-             */
-            for (var object in searchCategories) {
-                // Set the current default state for QMap
-                config.setStatus(object,searchCategories[object]);
-            }
-
-            config.writeStatus();
+            config.setValue(config.observerKey, searchObserver);
+            config.setValue(config.titleKey, searchTitle);
+            config.setValue(config.cityKey, searchCity);
+            config.setValue(config.searchKey, taivas.searchUser);
         }
 
-        if (!config.isLandScape())
-            // If user wants to use Portrait or LandScape
-            landscape = false
+        config.sync();
+    }
+
+    // Stores the current start and end date values
+    function setSaveDates(value) {
+        saveDates = value;
+        config.setValue(config.datesKey, value);
+        config.setValue(config.startKey, taivas.startDate);
+        config.setValue(config.endKey, taivas.endDate);
+
+        config.sync();
+    }
+
+    // Stores the current category value for the value key
+    function setCategoryValue(valueKey) {
+        config.setValue(valueKey, searchCategories[valueKey]);
+    }
+
+    // Reads the stored category value for the value key or reverts to default
+    function readAndStoreCategoryValue(valueKey) {
+        searchCategories[valueKey] = config.value(valueKey, searchCategories[valueKey]);
+    }
+
+    // Main initialization called when observation page is initalized
+    function configure() {
+        landscape = config.value(config.landScapeKey, false);
+        saveQueryParams = config.value(config.saveQueryParams, false);
+        saveDates = config.value(config.datesKey, false);
+
+        // Read config values if config store is on
+        if (saveQueryParams) {
+            for (var category in searchCategories) {
+               readAndStoreCategoryValue(category);
+            }
+
+            var query = config.value(config.searchKey, searchUser);
+            var observer = config.value(config.observerKey, searchObserver);
+            var title = config.value(config.titleKey, searchTitle);
+            var city = config.value(config.cityKey, searchCity);
+
+            searchObserver = observer;
+            searchTitle = title;
+            searchCity = city;
+            searchUser = query;
+        }
+
+        if (saveDates) {
+            taivas.startDate = config.value(config.startKey, taivas.startDate);
+            taivas.endDate = config.value(config.endKey, taivas.endDate);
+        }
 
         taivas.havaitse()
     }

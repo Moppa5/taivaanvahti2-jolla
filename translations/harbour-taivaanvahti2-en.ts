@@ -220,27 +220,27 @@
         <translation>Portrait images</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Observation.qml" line="158"/>
+        <location filename="../qml/pages/Observation.qml" line="151"/>
         <source>Lisätiedot</source>
         <translation>Additional details</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Observation.qml" line="204"/>
+        <location filename="../qml/pages/Observation.qml" line="197"/>
         <source>Kuvat (</source>
         <translation>Images (</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Observation.qml" line="285"/>
+        <location filename="../qml/pages/Observation.qml" line="278"/>
         <source>Tekniset tiedot</source>
         <translation>Technical details</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Observation.qml" line="306"/>
+        <location filename="../qml/pages/Observation.qml" line="299"/>
         <source>Kommentit (</source>
         <translation>Comments (</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Observation.qml" line="377"/>
+        <location filename="../qml/pages/Observation.qml" line="370"/>
         <source>Havainto taivaanvahdissa</source>
         <translation>Observation on Taivaanvahti</translation>
     </message>
@@ -330,198 +330,198 @@
 <context>
     <name>Search</name>
     <message>
-        <location filename="../qml/pages/Search.qml" line="48"/>
+        <location filename="../qml/pages/Search.qml" line="46"/>
         <source>Asetukset ja haku</source>
         <translation>Settings and search</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="66"/>
+        <location filename="../qml/pages/Search.qml" line="64"/>
         <source>Havaintokuvat</source>
         <translation>Observation images</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="76"/>
+        <location filename="../qml/pages/Search.qml" line="74"/>
         <source>Näytä vaakatasossa (landscape)</source>
         <translation>View in landscape</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="77"/>
+        <location filename="../qml/pages/Search.qml" line="75"/>
         <source>Valitse näytetäänkö kuvat vaaka- vai pystytasossa (landscape/portrait)</source>
         <translation>Select whether the images are shown in landscape or portrait</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="86"/>
+        <location filename="../qml/pages/Search.qml" line="84"/>
         <source>Tallennus</source>
         <translation>Saving</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="97"/>
+        <location filename="../qml/pages/Search.qml" line="95"/>
         <source>Tallenna hakuparametrit</source>
         <translation>Save the search parameters</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="98"/>
+        <location filename="../qml/pages/Search.qml" line="96"/>
         <source>Kaikki hakuparametrit tallennetaan käyttökertojen välillä</source>
         <translation>All of the search parameters are saved between application usage</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="105"/>
+        <location filename="../qml/pages/Search.qml" line="103"/>
         <source>Tallenna haun aikaväli</source>
         <translation>Save the time period</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="106"/>
+        <location filename="../qml/pages/Search.qml" line="104"/>
         <source>Valittu aikaväli tallennetaan käyttökertojen välillä</source>
         <translation>Selected time period is saved between application usage</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="112"/>
+        <location filename="../qml/pages/Search.qml" line="110"/>
         <source>Alusta aikaväli</source>
         <translation>Reset time period</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="130"/>
+        <location filename="../qml/pages/Search.qml" line="127"/>
         <source>Aikaväli</source>
         <translation>Time period</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="136"/>
+        <location filename="../qml/pages/Search.qml" line="133"/>
         <source>Alku</source>
         <translation>Start</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="155"/>
+        <location filename="../qml/pages/Search.qml" line="153"/>
         <source>Loppu</source>
         <translation>End</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="176"/>
+        <location filename="../qml/pages/Search.qml" line="175"/>
         <source>Palauta oletushaku</source>
         <translation>Reset to defaults</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="214"/>
+        <location filename="../qml/pages/Search.qml" line="205"/>
         <source>Kategoria</source>
         <translation>Category</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="225"/>
+        <location filename="../qml/pages/Search.qml" line="216"/>
         <source>Kaikki</source>
         <translation>All</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="226"/>
+        <location filename="../qml/pages/Search.qml" line="217"/>
         <source>Kaikki taivaan ilmiöt</source>
         <translation>All observations</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="233"/>
+        <location filename="../qml/pages/Search.qml" line="224"/>
         <source>Syvä avaruus</source>
         <translation>Deep space</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="234"/>
+        <location filename="../qml/pages/Search.qml" line="225"/>
         <source>Avaruuden kappaleet</source>
         <translation>Space objects</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="241"/>
+        <location filename="../qml/pages/Search.qml" line="232"/>
         <source>Pimennys</source>
         <translation>Eclipse</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="242"/>
+        <location filename="../qml/pages/Search.qml" line="233"/>
         <source>Kuun tai auringon pimennykset</source>
         <translation>Moon or the Sun eclipses</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="249"/>
+        <location filename="../qml/pages/Search.qml" line="240"/>
         <source>Tulipallo</source>
         <translation>Fireball</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="250"/>
+        <location filename="../qml/pages/Search.qml" line="241"/>
         <source>Harvinaisen kirkkaat tähdenlennot</source>
         <translation>Especially bright meteors</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="257"/>
+        <location filename="../qml/pages/Search.qml" line="248"/>
         <source>Revontulet</source>
         <translation>Aurora borealis</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="258"/>
+        <location filename="../qml/pages/Search.qml" line="249"/>
         <source>Aurinkotuulen hiukkaset ilmakehässä</source>
         <translation>Northern lights</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="265"/>
+        <location filename="../qml/pages/Search.qml" line="256"/>
         <source>Valaisevat yöpilvet</source>
         <translation>Luminous night clouds</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="266"/>
+        <location filename="../qml/pages/Search.qml" line="257"/>
         <source>Pilvet avaruuden rajalla</source>
         <translation>Clouds on the edge of the space</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="273"/>
+        <location filename="../qml/pages/Search.qml" line="264"/>
         <source>Myrskyilmiö</source>
         <translation>Storm phenomenon</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="274"/>
+        <location filename="../qml/pages/Search.qml" line="265"/>
         <source>Erityiset myrskyn ilmiöt</source>
         <translation>Special phenomena related to storms</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="281"/>
+        <location filename="../qml/pages/Search.qml" line="272"/>
         <source>Haloilmiö</source>
         <translation>Halo</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="282"/>
+        <location filename="../qml/pages/Search.qml" line="273"/>
         <source>Kirkkaan valonlähteen heijastumat</source>
         <translation>Optical phenomena</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="289"/>
+        <location filename="../qml/pages/Search.qml" line="280"/>
         <source>Muu ilmiö</source>
         <translation>Other</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="290"/>
+        <location filename="../qml/pages/Search.qml" line="281"/>
         <source>Muut valoilmiöt</source>
         <translation>Other light phenomena</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="296"/>
+        <location filename="../qml/pages/Search.qml" line="287"/>
         <source>Tyhjennä tekstikentät</source>
         <translation>Reset textfields</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="309"/>
+        <location filename="../qml/pages/Search.qml" line="300"/>
         <source>Havainnon otsikko</source>
         <translation>Observation subject</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="317"/>
-        <location filename="../qml/pages/Search.qml" line="353"/>
+        <location filename="../qml/pages/Search.qml" line="308"/>
+        <location filename="../qml/pages/Search.qml" line="344"/>
         <source>Mikä tahansa</source>
         <translation>Anything</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="327"/>
+        <location filename="../qml/pages/Search.qml" line="318"/>
         <source>Havainnon tekijä</source>
         <translation>Observation author</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="335"/>
+        <location filename="../qml/pages/Search.qml" line="326"/>
         <source>Kuka tahansa</source>
         <translation>Anyone</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="345"/>
+        <location filename="../qml/pages/Search.qml" line="336"/>
         <source>Kaupunki</source>
         <translation>City or location</translation>
     </message>
