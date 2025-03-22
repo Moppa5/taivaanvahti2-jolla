@@ -5,3 +5,7 @@ Name=Taivaanvahti 2
 Icon=harbour-taivaanvahti2
 Exec=harbour-taivaanvahti2
 
+[X-Sailjail]
+Permissions=Internet;
+OrganizationName=org.taivaanvahti2
+ApplicationName=Taivaanvahti2
