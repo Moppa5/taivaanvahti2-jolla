@@ -51,8 +51,9 @@ Page {
                     setResponse(qsTr("Kommentti lähetettiin onnistuneesti"), true)
                     clearFields()
                 } else {
-                    setResponse(qsTr("Kommentointi ei onnistunut, tarkista tiedot tai ilmoita
-                        virheestä ylläpitäjälle") )
+                    var failure = qsTr("Kommentointi epäonnistui, tarkista tiedot.");
+                    var hint = qsTr("Jos ongelma jatkuu, ilmoita virheestä ylläpitäjälle");
+                    setResponse(failure + " " + hint)
                 }
             }
             xhr.setRequestHeader('Content-Type','text/xml')

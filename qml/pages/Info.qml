@@ -70,7 +70,7 @@ Page {
                 maximumLineCount: 1024
                 font.pixelSize: Theme.fontSizeSmall
                 text: qsTr("Alkuperäistä Taivaanvahti-sovellusta on kehitetty eteenpäin.") +
-                      qsTr(" Sovelluksella on tuki Sailfish 4 -versiolle ja lisäksi") +
+                      qsTr(" Sovelluksella on tuki Sailfish 5 -versiolle ja lisäksi") +
                       qsTr(" mukaan on lisätty uusia ominaisuuksia kuten havaintohakujen") +
                       qsTr(" tallennus, kaupunkiparametri, valinta kuvien näyttöasennolle ja kommentin lähetys.") +
                       qsTr(" Lisäksi on tehty pieniä tyylimuutoksia ")
@@ -152,37 +152,25 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
-                text: qsTr("Alkuperäinen kehittäjä")
+                text: qsTr("Kehittäjät")
             }
 
             BackgroundItem {
                 id: orgdev
                 height: Theme.itemSizeSmall
                 property string original: "Kalle Vahlman"
-                property string originalmail: "zuh@iki.fi"
-                property string originalurl: "mailto:" + originalmail
 
                 Label {
                     anchors.centerIn: parent
                     font.pixelSize: Theme.fontSizeSmall
-                    text: orgdev.original + " <" + orgdev.originalmail + ">"
+                    text: qsTr("Alkuperäinen") + ": " + orgdev.original
                 }
-
-                onClicked: Qt.openUrlExternally(originalurl)
-            }
-
-            Label {
-                anchors.left: parent.left
-                font.pixelSize: Theme.fontSizeMedium
-                color: Theme.highlightColor
-                font.family: Theme.fontFamilyHeading
-                text: qsTr("Nykyinen kehittäjä")
             }
 
             BackgroundItem {
                 id: dev
                 height: Theme.itemSizeSmall
-                property string developer: "Santeri Kangas <katso GitHub>"
+                property string developer: "Taivaanvahti 2: Santeri Kangas"
 
                 Label {
                     anchors.centerIn: parent
