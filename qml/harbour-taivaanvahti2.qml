@@ -224,8 +224,14 @@ ApplicationWindow
         }
 
         if (saveDates) {
-            taivas.startDate = config.value(config.startKey, taivas.startDate);
-            taivas.endDate = config.value(config.endKey, taivas.endDate);
+            var startDate = config.value(config.startKey, null);
+            var endDate = config.value(config.endKey, null);
+
+            // Parse the string form dates into real date objects
+            if (startDate !== null && endDate !== null) {
+                taivas.startDate = new Date(startDate);
+                taivas.endDate = new Date(endDate);
+            }
         }
 
         taivas.havaitse()
