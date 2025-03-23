@@ -45,6 +45,9 @@ ApplicationWindow
         property string saveQueryParams: "saveQuery";
         property string datesKey: "saveDates";
 
+        // Language
+        property string languageKey: "language";
+
         // Date params
         property string startKey: "startDate";
         property string endKey: "endDate";
@@ -81,6 +84,10 @@ ApplicationWindow
     property var havainnot: ListModel {}
     property var kommentit: ListModel {}
     property var viimeiset: ListModel {}
+
+    // Language
+    property var languages: ["fi", "en", "sv"]
+    property int language: 0
 
     // Config related parameters
     property bool saveQueryParams: false
@@ -128,12 +135,20 @@ ApplicationWindow
         "muu": false
     }
 
+    // Resets the search results and re-fetches the data
     function reset() {
         havainnot.clear()
         kommentit.clear()
         viimeiset.clear()
 
         taivas.havaitse()
+    }
+
+    // Sets the current language selection and stores value into configuration
+    function setLanguageSelection(value) {
+        language = value;
+        config.setValue(config.languageKey, value);
+        config.sync();
     }
 
     // Sets the landscape and stores the value into configuration
@@ -147,6 +162,7 @@ ApplicationWindow
     function setSaveQueryParams(value) {
         saveQueryParams = value;
         config.setValue(config.saveQueryParams, value);
+        config.setValue(config.searchKey, taivas.searchUser);
 
         if (value) {
 
@@ -157,7 +173,6 @@ ApplicationWindow
             config.setValue(config.observerKey, searchObserver);
             config.setValue(config.titleKey, searchTitle);
             config.setValue(config.cityKey, searchCity);
-            config.setValue(config.searchKey, taivas.searchUser);
         }
 
         config.sync();
@@ -188,6 +203,10 @@ ApplicationWindow
         landscape = config.value(config.landScapeKey, false);
         saveQueryParams = config.value(config.saveQueryParams, false);
         saveDates = config.value(config.datesKey, false);
+        // Default to Finnish
+        language = config.value(config.languageKey, 0);
+        // Read possible params
+        searchUser = config.value(config.searchKey, searchUser);
 
         // Read config values if config store is on
         if (saveQueryParams) {
@@ -195,7 +214,6 @@ ApplicationWindow
                readAndStoreCategoryValue(category);
             }
 
-            var query = config.value(config.searchKey, searchUser);
             var observer = config.value(config.observerKey, searchObserver);
             var title = config.value(config.titleKey, searchTitle);
             var city = config.value(config.cityKey, searchCity);
@@ -203,7 +221,6 @@ ApplicationWindow
             searchObserver = observer;
             searchTitle = title;
             searchCity = city;
-            searchUser = query;
         }
 
         if (saveDates) {
@@ -309,16 +326,17 @@ ApplicationWindow
         xhr.send();
     }
 
-    /// Parses the given comment and replaces character codes with their readable form
+    /// Parses the given comment and replaces some common character codes with their readable form
     function parseComment(comment) {
-
-        // Fix the letters ä, ö, and some space
         const fixA = /&auml;/gi
         const fixO = /&ouml;/gi
         const space = /&nbsp;/gi
+        const deg = /&deg;/gi
+
         comment.text = comment.text.replace(fixA, 'ä');
         comment.text = comment.text.replace(fixO, 'ö');
         comment.text = comment.text.replace(space, ' ');
+        comment.text = comment.text.replace(deg, '°');
     }
 
     function kommentoi() {
@@ -333,7 +351,7 @@ ApplicationWindow
             return
         commentSearchRunning = true
         var xhr = new XMLHttpRequest;
-        xhr.open("GET", commentUrl + "&observation=" + havainnot.get(havainto).id)
+        xhr.open("GET", commentUrl + "&observation=" + havainnot.get(havainto).id + "&language=" + taivas.languages[taivas.language])
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 commentSearchRunning = false
