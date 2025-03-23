@@ -20,58 +20,62 @@
     </message>
     <message>
         <location filename="../qml/pages/Comment.qml" line="54"/>
-        <source>Kommentointi ei onnistunut, tarkista tiedot tai ilmoita
-                        virheestä ylläpitäjälle</source>
-        <translation type="unfinished"></translation>
+        <source>Kommentointi epäonnistui, tarkista tiedot.</source>
+        <translation>Failed to send comment, check the input.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="74"/>
-        <location filename="../qml/pages/Comment.qml" line="172"/>
+        <location filename="../qml/pages/Comment.qml" line="55"/>
+        <source>Jos ongelma jatkuu, ilmoita virheestä ylläpitäjälle</source>
+        <translation>If the problem persists, contact the app developer</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/Comment.qml" line="75"/>
+        <location filename="../qml/pages/Comment.qml" line="173"/>
         <source>Lähetä</source>
         <translation>Send</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="81"/>
+        <location filename="../qml/pages/Comment.qml" line="82"/>
         <source>Jätä kommentti</source>
         <translation>Leave a comment</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="100"/>
+        <location filename="../qml/pages/Comment.qml" line="101"/>
         <source>Täytä kaikki kentät ja anna kelvollinen sähköpostiosoite.</source>
         <translation>Fill all the fields and give a valid email address.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="101"/>
+        <location filename="../qml/pages/Comment.qml" line="102"/>
         <source> Kommentti tulee näkyväksi, kun Taivaanvahdin ylläpito hyväksyy sen.</source>
         <translation> Your comment is published when Taivaanvahti staff accepts it.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="119"/>
+        <location filename="../qml/pages/Comment.qml" line="120"/>
         <source>Nimi</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="127"/>
+        <location filename="../qml/pages/Comment.qml" line="128"/>
         <source>Koko nimesi</source>
         <translation>Your fullname here</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="138"/>
+        <location filename="../qml/pages/Comment.qml" line="139"/>
         <source>Sähköposti</source>
         <translation>Email</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="146"/>
+        <location filename="../qml/pages/Comment.qml" line="147"/>
         <source>Sähköpostisi</source>
         <translation>Your email here</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="157"/>
+        <location filename="../qml/pages/Comment.qml" line="158"/>
         <source>Kommentti</source>
         <translation>Comment</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="165"/>
+        <location filename="../qml/pages/Comment.qml" line="166"/>
         <source>Kommenttisi tähän</source>
         <translation>Your comment here</translation>
     </message>
@@ -108,8 +112,8 @@
     </message>
     <message>
         <location filename="../qml/pages/Info.qml" line="73"/>
-        <source> Sovelluksella on tuki Sailfish 4 -versiolle ja lisäksi</source>
-        <translation> The application supports Sailfish 4 and</translation>
+        <source> Sovelluksella on tuki Sailfish 5 -versiolle ja lisäksi</source>
+        <translation> The application supports Sailfish 5 and</translation>
     </message>
     <message>
         <location filename="../qml/pages/Info.qml" line="74"/>
@@ -124,7 +128,7 @@
     <message>
         <location filename="../qml/pages/Info.qml" line="76"/>
         <source> Lisäksi on tehty pieniä tyylimuutoksia </source>
-        <translation>There has been some style changes as well</translation>
+        <translation> There has been some style changes as well</translation>
     </message>
     <message>
         <location filename="../qml/pages/Info.qml" line="85"/>
@@ -159,7 +163,7 @@
     <message>
         <location filename="../qml/pages/Info.qml" line="106"/>
         <source> Palaute on sallittua ja toivottua</source>
-        <translation>Feedback is welcome</translation>
+        <translation> Feedback is welcome</translation>
     </message>
     <message>
         <location filename="../qml/pages/Info.qml" line="114"/>
@@ -193,13 +197,13 @@
     </message>
     <message>
         <location filename="../qml/pages/Info.qml" line="155"/>
-        <source>Alkuperäinen kehittäjä</source>
-        <translation>Original developer</translation>
+        <source>Kehittäjät</source>
+        <translation>Developers</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Info.qml" line="179"/>
-        <source>Nykyinen kehittäjä</source>
-        <translation>Current developer</translation>
+        <location filename="../qml/pages/Info.qml" line="166"/>
+        <source>Alkuperäinen</source>
+        <translation>Original</translation>
     </message>
 </context>
 <context>
