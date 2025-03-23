@@ -434,128 +434,128 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="235"/>
+        <location filename="../qml/pages/Search.qml" line="232"/>
         <source>Kategoria</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="246"/>
+        <location filename="../qml/pages/Search.qml" line="243"/>
         <source>Kaikki</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="247"/>
+        <location filename="../qml/pages/Search.qml" line="244"/>
         <source>Kaikki taivaan ilmiöt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="254"/>
+        <location filename="../qml/pages/Search.qml" line="251"/>
         <source>Syvä avaruus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="255"/>
+        <location filename="../qml/pages/Search.qml" line="252"/>
         <source>Avaruuden kappaleet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="262"/>
+        <location filename="../qml/pages/Search.qml" line="259"/>
         <source>Pimennys</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="263"/>
+        <location filename="../qml/pages/Search.qml" line="260"/>
         <source>Kuun tai auringon pimennykset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="270"/>
+        <location filename="../qml/pages/Search.qml" line="267"/>
         <source>Tulipallo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="271"/>
+        <location filename="../qml/pages/Search.qml" line="268"/>
         <source>Harvinaisen kirkkaat tähdenlennot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="278"/>
+        <location filename="../qml/pages/Search.qml" line="275"/>
         <source>Revontulet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="279"/>
+        <location filename="../qml/pages/Search.qml" line="276"/>
         <source>Aurinkotuulen hiukkaset ilmakehässä</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="286"/>
+        <location filename="../qml/pages/Search.qml" line="283"/>
         <source>Valaisevat yöpilvet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="287"/>
+        <location filename="../qml/pages/Search.qml" line="284"/>
         <source>Pilvet avaruuden rajalla</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="294"/>
+        <location filename="../qml/pages/Search.qml" line="291"/>
         <source>Myrskyilmiö</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="295"/>
+        <location filename="../qml/pages/Search.qml" line="292"/>
         <source>Erityiset myrskyn ilmiöt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="302"/>
+        <location filename="../qml/pages/Search.qml" line="299"/>
         <source>Haloilmiö</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="303"/>
+        <location filename="../qml/pages/Search.qml" line="300"/>
         <source>Kirkkaan valonlähteen heijastumat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="310"/>
+        <location filename="../qml/pages/Search.qml" line="307"/>
         <source>Muu ilmiö</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="311"/>
+        <location filename="../qml/pages/Search.qml" line="308"/>
         <source>Muut valoilmiöt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="317"/>
+        <location filename="../qml/pages/Search.qml" line="314"/>
         <source>Tyhjennä tekstikentät</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="330"/>
+        <location filename="../qml/pages/Search.qml" line="327"/>
         <source>Havainnon otsikko</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="338"/>
-        <location filename="../qml/pages/Search.qml" line="374"/>
+        <location filename="../qml/pages/Search.qml" line="335"/>
+        <location filename="../qml/pages/Search.qml" line="371"/>
         <source>Mikä tahansa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="348"/>
+        <location filename="../qml/pages/Search.qml" line="345"/>
         <source>Havainnon tekijä</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="356"/>
+        <location filename="../qml/pages/Search.qml" line="353"/>
         <source>Kuka tahansa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Search.qml" line="366"/>
+        <location filename="../qml/pages/Search.qml" line="363"/>
         <source>Kaupunki</source>
         <translation type="unfinished"></translation>
     </message>

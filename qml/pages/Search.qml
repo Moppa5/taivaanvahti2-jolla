@@ -171,7 +171,7 @@ Page {
                         dialog.accepted.connect(function() {
                             page.dialogRunning = false
                             if (dialog.date < end.date) {
-                                taivas.startDate = dialog.date
+                                start.date = dialog.date
                             }
                         })
                     }
@@ -192,7 +192,7 @@ Page {
                         dialog.accepted.connect(function() {
                             page.dialogRunning = false
                             if (dialog.date > start.date && dialog.date <= currentDate) {
-                                taivas.endDate = dialog.date
+                                end.date = dialog.date
                             }
                         })
                     }
@@ -205,13 +205,10 @@ Page {
                 text: qsTr("Palauta oletushaku")
 
                 onClicked: {
-                    taivas.searchUser = ""
                     observer.text = ""
                     title.text = ""
                     city.text = ""
-                    taivas.searchObserver = ""
-                    taivas.searchTitle = ""
-                    taivas.searchCity = ""
+
                     all.checked = true
                     end.date = new Date()
                     start.date = taivas.makeOffsetDate()
