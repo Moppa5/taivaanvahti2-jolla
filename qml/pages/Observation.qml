@@ -318,9 +318,27 @@ Page {
                             horizontalAlignment: Qt.AlignHCenter
                         }
 
-                        Label {
-                            font.pixelSize: Theme.fontSizeMedium
-                            text: user
+                        Column {
+                            id: commentHeader
+
+                            Label {
+                                font.pixelSize: Theme.fontSizeMedium
+                                text: user
+                            }
+
+                            Label {
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.secondaryColor
+                                text: {
+                                    var txt = Format.formatDate(start, Formatter.TimeValue)
+                                    var time = new Date(start)
+                                    var month = time.getMonth()+1
+                                    var date = time.getDate()
+                                    var year = time.getFullYear()
+
+                                    return date + "." + month + "." + year + " | " + txt
+                                }
+                            }
                         }
 
                         Label {
@@ -330,20 +348,6 @@ Page {
                             text: model.text
                             truncationMode: TruncationMode.Fade
                             font.pixelSize: Theme.fontSizeSmall
-                        }
-
-                        Label {
-                            font.pixelSize: Theme.fontSizeSmall
-                            color: Theme.secondaryColor
-                            text: {
-                                var txt = Format.formatDate(start, Formatter.TimeValue)
-                                var time = new Date(start)
-                                var month = time.getMonth()+1
-                                var date = time.getDate()
-                                var year = time.getFullYear()
-
-                                return txt + " | " + date + "." + month + "." + year
-                            }
                         }
                     }
                 }

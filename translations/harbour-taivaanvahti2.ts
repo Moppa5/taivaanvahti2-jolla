@@ -240,7 +240,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/Observation.qml" line="370"/>
+        <location filename="../qml/pages/Observation.qml" line="374"/>
         <source>Havainto taivaanvahdissa</source>
         <translation type="unfinished"></translation>
     </message>

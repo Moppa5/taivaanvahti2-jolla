@@ -240,7 +240,7 @@
         <translation>Comments (</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Observation.qml" line="370"/>
+        <location filename="../qml/pages/Observation.qml" line="374"/>
         <source>Havainto taivaanvahdissa</source>
         <translation>Observation on Taivaanvahti</translation>
     </message>
