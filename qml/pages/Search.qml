@@ -81,6 +81,36 @@ Page {
                 font.pixelSize: Theme.fontSizeMedium
                 color: Theme.highlightColor
                 font.family: Theme.fontFamilyHeading
+                text: qsTr("Haun kieli")
+            }
+
+            ComboBox {
+                id: language
+                label: qsTr("Kielivalinta")
+                description: qsTr("Haussa käytetty kielivalinta")
+                currentIndex: taivas.language
+
+                menu: ContextMenu {
+                    MenuItem {
+                        id: fi
+                        text: qsTr("suomi")
+                    }
+                    MenuItem {
+                        id: en
+                        text: qsTr("englanti")
+                    }
+                    MenuItem {
+                        id: sv
+                        text: qsTr("ruotsi")
+                    }
+                }
+            }
+
+            Label {
+                anchors.left: parent.left
+                font.pixelSize: Theme.fontSizeMedium
+                color: Theme.highlightColor
+                font.family: Theme.fontFamilyHeading
                 text: qsTr("Tallennus")
             }
 
@@ -390,6 +420,8 @@ Page {
         if (city.text)
             taivas.searchUser += "&city=" + encodeURIComponent(city.text)
 
+        taivas.searchUser += "&language=" + encodeURIComponent(taivas.languages[language.currentIndex])
+
         taivas.searchObserver = observer.text
         taivas.searchTitle = title.text
         taivas.searchCity = city.text
@@ -401,6 +433,7 @@ Page {
         taivas.setLandScape(landscapemode.checked);
         taivas.setSaveQueryParams(saveQueryParams.checked);
         taivas.setSaveDates(dateSavingSwitch.checked);
+        taivas.setLanguageSelection(language.currentIndex)
 
         taivas.havaitse()
         reset = false
