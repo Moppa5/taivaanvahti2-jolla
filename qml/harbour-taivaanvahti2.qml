@@ -253,6 +253,7 @@ ApplicationWindow
         var xhr = new XMLHttpRequest
         var query = searchUrl + searchUser + detailedColumns + "&id=" + havainnot.get(havainto).id
         xhr.open("GET", query);
+        xhr.setRequestHeader("User-Agent", "TaivaanvahtiSailfishClient");
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -294,6 +295,8 @@ ApplicationWindow
         query += "&start=" + Qt.formatDate(startDate, "yyyy-MM-dd")
         query += "&end=" + Qt.formatDate(endDate, "yyyy-MM-dd")
         xhr.open("GET", query);
+        xhr.setRequestHeader("User-Agent", "TaivaanvahtiSailfishClient");
+
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
 
@@ -358,6 +361,8 @@ ApplicationWindow
         commentSearchRunning = true
         var xhr = new XMLHttpRequest;
         xhr.open("GET", commentUrl + "&observation=" + havainnot.get(havainto).id + "&language=" + taivas.languages[taivas.language])
+        xhr.setRequestHeader("User-Agent", "TaivaanvahtiSailfishClient");
+
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 commentSearchRunning = false

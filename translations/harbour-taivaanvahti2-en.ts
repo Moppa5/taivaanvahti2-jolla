@@ -14,68 +14,68 @@
         <translation>Email is not valid</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="51"/>
+        <location filename="../qml/pages/Comment.qml" line="53"/>
         <source>Kommentti lähetettiin onnistuneesti</source>
         <translation>Comment was sent successfully</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="54"/>
+        <location filename="../qml/pages/Comment.qml" line="56"/>
         <source>Kommentointi epäonnistui, tarkista tiedot.</source>
         <translation>Failed to send comment, check the input.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="55"/>
+        <location filename="../qml/pages/Comment.qml" line="57"/>
         <source>Jos ongelma jatkuu, ilmoita virheestä ylläpitäjälle</source>
         <translation>If the problem persists, contact the app developer</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="75"/>
-        <location filename="../qml/pages/Comment.qml" line="173"/>
+        <location filename="../qml/pages/Comment.qml" line="77"/>
+        <location filename="../qml/pages/Comment.qml" line="175"/>
         <source>Lähetä</source>
         <translation>Send</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="82"/>
+        <location filename="../qml/pages/Comment.qml" line="84"/>
         <source>Jätä kommentti</source>
         <translation>Leave a comment</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="101"/>
+        <location filename="../qml/pages/Comment.qml" line="103"/>
         <source>Täytä kaikki kentät ja anna kelvollinen sähköpostiosoite.</source>
         <translation>Fill all the fields and give a valid email address.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="102"/>
+        <location filename="../qml/pages/Comment.qml" line="104"/>
         <source> Kommentti tulee näkyväksi, kun Taivaanvahdin ylläpito hyväksyy sen.</source>
         <translation> Your comment is published when Taivaanvahti staff accepts it.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="120"/>
+        <location filename="../qml/pages/Comment.qml" line="122"/>
         <source>Nimi</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="128"/>
+        <location filename="../qml/pages/Comment.qml" line="130"/>
         <source>Koko nimesi</source>
         <translation>Your fullname here</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="139"/>
+        <location filename="../qml/pages/Comment.qml" line="141"/>
         <source>Sähköposti</source>
         <translation>Email</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="147"/>
+        <location filename="../qml/pages/Comment.qml" line="149"/>
         <source>Sähköpostisi</source>
         <translation>Your email here</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="158"/>
+        <location filename="../qml/pages/Comment.qml" line="160"/>
         <source>Kommentti</source>
         <translation>Comment</translation>
     </message>
     <message>
-        <location filename="../qml/pages/Comment.qml" line="166"/>
+        <location filename="../qml/pages/Comment.qml" line="168"/>
         <source>Kommenttisi tähän</source>
         <translation>Your comment here</translation>
     </message>

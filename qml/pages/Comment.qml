@@ -33,6 +33,8 @@ Page {
             var xhr = new XMLHttpRequest
             var query = "https://www.taivaanvahti.fi/api"
             xhr.open("POST",query)
+            xhr.setRequestHeader("User-Agent", "TaivaanvahtiSailfishClient");
+
             var xmlrequest = "<?xml version='1.0'?>
                         <Request>
                         <source>Sailfish Client</source>
