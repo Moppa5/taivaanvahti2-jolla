@@ -1,3 +1,6 @@
+Taivaanvahti 2.2.1
+    * Fix the observation data fetching issue
+
 Taivaanvahti 2.2.0
     * Fix some character problems in observation comments
     * Make portrait mode default
